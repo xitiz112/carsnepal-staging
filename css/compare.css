@@ -281,9 +281,13 @@
 }
 
 /* If you use <ion-icon> inside tabs too */
-.section-tabs a ion-icon{
-  display: inline-block;
-  font-size: 18px;
+.section-tabs a .spec-icon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 /* Blocks */
@@ -449,10 +453,11 @@ html{ scroll-behavior: smooth; }
 .faqs .faq[open] > summary::before{ transform: rotate(90deg); }
 .faqs .faq .faq-body{
   /* start collapsed */
-  max-height: 0;               /* use max-height for CSS-only animation */
+  --faq-slide-duration: .34s;
+  height: 0;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(-4px);
+  transform: translateY(-14px);
   padding: 0 20px;             /* animate padding in */
   margin-top: 0;
   border: 1px solid transparent;   /* fade border in */
@@ -461,11 +466,21 @@ html{ scroll-behavior: smooth; }
   font-size:15px;               /* updated per request */
   font-weight:400;              /* explicit weight */
   background:#ffffff;
-  transition: max-height .32s ease, opacity .22s ease, transform .22s ease, padding .22s ease, margin-top .22s ease, border-color .22s ease;
-  will-change: max-height, opacity, transform;
+  transition:
+    height var(--faq-slide-duration) cubic-bezier(.4,0,.2,1),
+    opacity calc(var(--faq-slide-duration) * .75) ease,
+    transform calc(var(--faq-slide-duration) * .75) ease,
+    padding .24s ease,
+    margin-top .24s ease,
+    border-color .24s ease;
+  will-change: height, opacity, transform;
+}
+.faqs .faq .faq-body.is-sliding{
+  /* keep overflow hidden while JS drives height */
+  overflow: hidden;
 }
 .faqs .faq[open] .faq-body{
-  max-height: 600px;           /* large enough to reveal expected content */
+  height: auto;                /* reset to natural size after animation */
   opacity: 1;
   transform: translateY(0);
   padding:14px 20px 16px;

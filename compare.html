@@ -38,6 +38,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
     />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
@@ -81,6 +88,15 @@
 
             <!-- Right items -->
             <ul class="navbar-nav ms-auto align-items-center header-actions">
+              <li class="nav-item nav-sell-car me-2">
+                <a
+                  class="btn btn-primary btn-sm d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                  Sell My Car
+                </a>
+              </li>
               <li class="nav-item nav-compare">
                 <a
                   class="nav-link p-0 d-flex align-items-center"
@@ -195,7 +211,7 @@
                 <li class="nav-item">
                   <a
                     class="nav-link d-flex align-items-center"
-                    href="new_car_detail.html"
+                    href="explore_cars.html"
                   >
                     New Cars
                   </a>
@@ -203,7 +219,7 @@
                 <li class="nav-item">
                   <a
                     class="nav-link d-flex align-items-center"
-                    href="used_car_details.html"
+                    href="explore_cars.html"
                   >
                     Used Cars
                   </a>
@@ -257,10 +273,10 @@
           >
             <ul class="navbar-nav header-subnav">
               <li class="nav-item">
-                <a class="nav-link" href="new_car_detail.html">New Cars</a>
+                <a class="nav-link" href="explore_cars.html">New Cars</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="used_car_details.html">Used Cars</a>
+                <a class="nav-link" href="explore_cars.html">Used Cars</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="expert_car_reviews_listing.html"
@@ -448,21 +464,9 @@
 
         <span>Home</span>
       </a>
-      <a href="/search" class="tab-item" role="tab" aria-selected="false">
-        <svg
-          width="21"
-          height="20"
-          viewBox="0 0 21 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M18.3395 16.4605L14.6641 12.7852C15.5489 11.6072 16.0266 10.1733 16.025 8.7C16.025 4.93672 12.9633 1.875 9.2 1.875C5.43672 1.875 2.375 4.93672 2.375 8.7C2.375 12.4633 5.43672 15.525 9.2 15.525C10.6733 15.5266 12.1072 15.0489 13.2852 14.1641L16.9605 17.8395C17.1466 18.0058 17.3893 18.0945 17.6387 18.0876C17.8881 18.0806 18.1255 17.9784 18.3019 17.8019C18.4784 17.6255 18.5806 17.3881 18.5876 17.1387C18.5945 16.8893 18.5058 16.6466 18.3395 16.4605ZM4.325 8.7C4.325 7.73582 4.61091 6.79329 5.14659 5.9916C5.68226 5.18991 6.44363 4.56506 7.33442 4.19609C8.22521 3.82711 9.20541 3.73057 10.1511 3.91867C11.0967 4.10678 11.9654 4.57107 12.6471 5.25285C13.3289 5.93464 13.7932 6.80328 13.9813 7.74894C14.1694 8.69459 14.0729 9.67479 13.7039 10.5656C13.3349 11.4564 12.7101 12.2177 11.9084 12.7534C11.1067 13.2891 10.1642 13.575 9.2 13.575C7.90755 13.5735 6.66847 13.0593 5.75457 12.1454C4.84066 11.2315 4.32655 9.99246 4.325 8.7Z"
-            fill="#757575"
-          />
-        </svg>
-
-        <span>Search</span>
+      <a href="compare.html" class="tab-item" role="tab" aria-selected="false">
+        <i class="fa-solid fa-right-left"></i>
+        <span>Compare</span>
       </a>
       <a href="/cars" class="tab-item" role="tab" aria-selected="false">
         <svg
@@ -480,32 +484,9 @@
         <span>Explore</span>
       </a>
 
-      <a href="/bookmarks" class="tab-item" role="tab" aria-selected="false">
-        <svg
-          width="21"
-          height="20"
-          viewBox="0 0 21 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clip-path="url(#clip0_2783_11616)">
-            <path
-              d="M18.0001 1.66699H3.00008C2.77907 1.66699 2.56711 1.75479 2.41083 1.91107C2.25455 2.06735 2.16675 2.27931 2.16675 2.50033V17.5003C2.16675 17.7213 2.25455 17.9333 2.41083 18.0896C2.56711 18.2459 2.77907 18.3337 3.00008 18.3337H18.0001C18.2211 18.3337 18.4331 18.2459 18.5893 18.0896C18.7456 17.9333 18.8334 17.7213 18.8334 17.5003V2.50033C18.8334 2.27931 18.7456 2.06735 18.5893 1.91107C18.4331 1.75479 18.2211 1.66699 18.0001 1.66699ZM5.50008 6.66699C5.50008 6.44598 5.58788 6.23402 5.74416 6.07774C5.90044 5.92146 6.1124 5.83366 6.33342 5.83366H8.83342C9.05443 5.83366 9.26639 5.92146 9.42267 6.07774C9.57895 6.23402 9.66675 6.44598 9.66675 6.66699V10.0003C9.66675 10.2213 9.57895 10.4333 9.42267 10.5896C9.26639 10.7459 9.05443 10.8337 8.83342 10.8337H6.33342C6.1124 10.8337 5.90044 10.7459 5.74416 10.5896C5.58788 10.4333 5.50008 10.2213 5.50008 10.0003V6.66699ZM14.6667 14.167H6.33342C6.1124 14.167 5.90044 14.0792 5.74416 13.9229C5.58788 13.7666 5.50008 13.5547 5.50008 13.3337C5.50008 13.1126 5.58788 12.9007 5.74416 12.7444C5.90044 12.5881 6.1124 12.5003 6.33342 12.5003H14.6667C14.8878 12.5003 15.0997 12.5881 15.256 12.7444C15.4123 12.9007 15.5001 13.1126 15.5001 13.3337C15.5001 13.5547 15.4123 13.7666 15.256 13.9229C15.0997 14.0792 14.8878 14.167 14.6667 14.167ZM14.6667 10.8337H12.1667C11.9457 10.8337 11.7338 10.7459 11.5775 10.5896C11.4212 10.4333 11.3334 10.2213 11.3334 10.0003C11.3334 9.77931 11.4212 9.56735 11.5775 9.41107C11.7338 9.25479 11.9457 9.16699 12.1667 9.16699H14.6667C14.8878 9.16699 15.0997 9.25479 15.256 9.41107C15.4123 9.56735 15.5001 9.77931 15.5001 10.0003C15.5001 10.2213 15.4123 10.4333 15.256 10.5896C15.0997 10.7459 14.8878 10.8337 14.6667 10.8337ZM14.6667 7.50033H12.1667C11.9457 7.50033 11.7338 7.41253 11.5775 7.25625C11.4212 7.09997 11.3334 6.88801 11.3334 6.66699C11.3334 6.44598 11.4212 6.23402 11.5775 6.07774C11.7338 5.92146 11.9457 5.83366 12.1667 5.83366H14.6667C14.8878 5.83366 15.0997 5.92146 15.256 6.07774C15.4123 6.23402 15.5001 6.44598 15.5001 6.66699C15.5001 6.88801 15.4123 7.09997 15.256 7.25625C15.0997 7.41253 14.8878 7.50033 14.6667 7.50033Z"
-              fill="#757575"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_2783_11616">
-              <rect
-                width="20"
-                height="20"
-                fill="white"
-                transform="translate(0.5)"
-              />
-            </clipPath>
-          </defs>
-        </svg>
-        <span>News</span>
+      <a href="quiz_no_1.html" class="tab-item" role="tab" aria-selected="false">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Quiz</span>
       </a>
 
       <a href="/profile" class="tab-item" role="tab" aria-selected="false">
@@ -879,125 +860,68 @@
 
         <!-- Sticky section tabs -->
         <nav class="section-tabs">
+          <a href="#basic">
+            <i class="fa-solid fa-circle-info spec-icon" aria-hidden="true"></i>
+            Basic Info
+          </a>
           <a href="#performance">
-            <svg
-              width="11"
-              height="15"
-              viewBox="0 0 11 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2.52797 0.640137H9.33464L6.2413 5.59347H8.71464L1.90797 13.0268L3.1413 8.07347H0.667969L2.52797 0.640137Z"
-                stroke="#212121"
-                stroke-miterlimit="10"
-              />
-            </svg>
+            <i class="fa-solid fa-gauge-high spec-icon" aria-hidden="true"></i>
             Performance
           </a>
           <a href="#efficiency">
-            <svg
-              width="16"
-              height="17"
-              viewBox="0 0 16 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clip-path="url(#clip0_942_6206)">
-                <path
-                  d="M8.94092 15.6113H2.62092C2.45358 15.6167 2.28687 15.5884 2.1307 15.528C1.97453 15.4677 1.83209 15.3765 1.71185 15.26C1.59161 15.1435 1.49602 15.004 1.43077 14.8498C1.36553 14.6956 1.33195 14.5299 1.33203 14.3625V2.66023C1.34477 2.31911 1.49231 1.99698 1.74227 1.76451C1.99224 1.53204 2.32422 1.40822 2.66536 1.42023H8.98536C9.149 1.41657 9.31168 1.44617 9.46353 1.50724C9.61539 1.56832 9.75326 1.6596 9.86879 1.77554C9.98432 1.89149 10.0751 2.02968 10.1356 2.18176C10.1962 2.33383 10.2252 2.49661 10.2209 2.66023V14.3625C10.2204 14.5289 10.1867 14.6936 10.1217 14.847C10.0568 15.0003 9.96203 15.1391 9.84286 15.2554C9.7237 15.3716 9.58257 15.463 9.42771 15.5241C9.27285 15.5852 9.10737 15.6149 8.94092 15.6113ZM2.62092 2.27801C2.5694 2.27623 2.51805 2.28477 2.46988 2.30312C2.42171 2.32148 2.3777 2.34928 2.34043 2.38489C2.30316 2.4205 2.27339 2.46321 2.25287 2.51049C2.23234 2.55778 2.22148 2.60869 2.22092 2.66023V14.3625C2.22092 14.465 2.26166 14.5634 2.33417 14.6359C2.40669 14.7084 2.50504 14.7491 2.60759 14.7491H8.94092C9.0473 14.7505 9.15022 14.7113 9.22868 14.6395C9.30714 14.5676 9.35523 14.4685 9.36314 14.3625V2.66023C9.35416 2.55493 9.3056 2.45695 9.22726 2.38603C9.14891 2.3151 9.04659 2.2765 8.94092 2.27801H2.62092Z"
-                  fill="#212121"
-                />
-                <path
-                  d="M13.1237 15.6113C12.9183 15.6131 12.7146 15.5742 12.5243 15.4968C12.3341 15.4194 12.161 15.3051 12.0151 15.1605C11.8693 15.0158 11.7535 14.8438 11.6745 14.6542C11.5955 14.4646 11.5548 14.2612 11.5548 14.0558V10.7224C11.5548 10.4867 11.4612 10.2606 11.2945 10.0939C11.1278 9.9272 10.9017 9.83355 10.6659 9.83355H10.0304C9.91251 9.83355 9.79946 9.78673 9.71611 9.70338C9.63276 9.62003 9.58594 9.50698 9.58594 9.38911C9.58594 9.27123 9.63276 9.15819 9.71611 9.07484C9.79946 8.99149 9.91251 8.94466 10.0304 8.94466H10.6659C11.1374 8.94466 11.5896 9.13196 11.923 9.46536C12.2564 9.79876 12.4437 10.2509 12.4437 10.7224V14.0558C12.4437 14.2326 12.514 14.4022 12.639 14.5272C12.764 14.6522 12.9336 14.7224 13.1104 14.7224C13.2872 14.7224 13.4568 14.6522 13.5818 14.5272C13.7068 14.4022 13.777 14.2326 13.777 14.0558V8.18911L12.3859 5.07799C12.3028 4.90462 12.1723 4.75834 12.0095 4.65609C11.8467 4.55384 11.6582 4.49979 11.4659 4.50022H11.1415C11.0236 4.50022 10.9106 4.45339 10.8272 4.37004C10.7439 4.28669 10.697 4.17365 10.697 4.05577C10.697 3.9379 10.7439 3.82485 10.8272 3.7415C10.9106 3.65815 11.0236 3.61133 11.1415 3.61133H11.4659C11.8355 3.61114 12.1972 3.71809 12.5072 3.91924C12.8172 4.12039 13.0622 4.4071 13.2126 4.74466L14.6393 7.92688C14.6653 7.98411 14.679 8.04622 14.6793 8.10911V14.0558C14.6793 14.4683 14.5154 14.864 14.2237 15.1557C13.9319 15.4474 13.5363 15.6113 13.1237 15.6113Z"
-                  fill="#212121"
-                />
-                <path
-                  d="M8.00022 4.49997H3.55577C3.4379 4.49997 3.32485 4.45315 3.2415 4.3698C3.15815 4.28645 3.11133 4.1734 3.11133 4.05553C3.11133 3.93765 3.15815 3.82461 3.2415 3.74126C3.32485 3.65791 3.4379 3.61108 3.55577 3.61108H8.00022C8.11809 3.61108 8.23114 3.65791 8.31449 3.74126C8.39784 3.82461 8.44466 3.93765 8.44466 4.05553C8.44466 4.1734 8.39784 4.28645 8.31449 4.3698C8.23114 4.45315 8.11809 4.49997 8.00022 4.49997Z"
-                  fill="#212121"
-                />
-                <path
-                  d="M8.00022 6.2778H3.55577C3.4379 6.2778 3.32485 6.23098 3.2415 6.14763C3.15815 6.06428 3.11133 5.95123 3.11133 5.83336C3.11133 5.71549 3.15815 5.60244 3.2415 5.51909C3.32485 5.43574 3.4379 5.38892 3.55577 5.38892H8.00022C8.11809 5.38892 8.23114 5.43574 8.31449 5.51909C8.39784 5.60244 8.44466 5.71549 8.44466 5.83336C8.44466 5.95123 8.39784 6.06428 8.31449 6.14763C8.23114 6.23098 8.11809 6.2778 8.00022 6.2778Z"
-                  fill="#212121"
-                />
-                <path
-                  d="M11.1124 5.86903C10.9945 5.86903 10.8815 5.82221 10.7981 5.73886C10.7148 5.65551 10.668 5.54246 10.668 5.42459V2.75792C10.668 2.64005 10.7148 2.527 10.7981 2.44365C10.8815 2.3603 10.9945 2.31348 11.1124 2.31348C11.2303 2.31348 11.3433 2.3603 11.4267 2.44365C11.51 2.527 11.5569 2.64005 11.5569 2.75792V5.42459C11.5569 5.54246 11.51 5.65551 11.4267 5.73886C11.3433 5.82221 11.2303 5.86903 11.1124 5.86903Z"
-                  fill="#212121"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_942_6206">
-                  <rect
-                    width="16"
-                    height="16"
-                    fill="white"
-                    transform="translate(0 0.5)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
+            <i class="fa-solid fa-bolt spec-icon" aria-hidden="true"></i>
             Efficiency
+          </a>
+          <a href="#dimension">
+            <i class="fa-solid fa-arrows-up-down-left-right spec-icon" aria-hidden="true"></i>
+            Dimension
+          </a>
+          <a href="#safety">
+            <i class="fa-solid fa-shield-halved spec-icon" aria-hidden="true"></i>
+            Safety
+          </a>
+          <a href="#brake">
+            <i class="fa-solid fa-dharmachakra spec-icon" aria-hidden="true"></i>
+            Brake & Wheel
+          </a>
+          <a href="#technology">
+            <i class="fa-solid fa-wifi spec-icon" aria-hidden="true"></i>
+            Technology
+          </a>
+          <a href="#interior">
+            <i class="fa-solid fa-couch spec-icon" aria-hidden="true"></i>
+            Interior
+          </a>
+          <a href="#exterior">
+            <i class="fa-solid fa-car-side spec-icon" aria-hidden="true"></i>
+            Exterior
+          </a>
+          <a href="#warranty">
+            <i class="fa-solid fa-shield-check spec-icon" aria-hidden="true"></i>
+            Warranty
+          </a>
+          <a href="#other">
+            <i class="fa-solid fa-file-lines spec-icon" aria-hidden="true"></i>
+            Other
           </a>
         </nav>
 
         <section class="block">
-          <!-- LEFT: Specs accordions -->
           <div>
             <div class="accordion mk-acc" id="specAccordion">
-              <!-- Performance -->
-              <div id="performance" class="spec-anchor"></div>
+              <!-- Basic Info -->
+              <div id="basic" class="spec-anchor"></div>
               <div class="accordion-item mk-item">
-                <button
-                  class="accordion-button collapsed mk-btn"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#perfCollapse"
-                  aria-expanded="false"
-                  aria-controls="perfCollapse"
-                >
-                  <h2 class="accordion-header" id="perfHeading">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g clip-path="url(#clip0_2823_12977)">
-                        <path
-                          d="M10 5C10.1658 5 10.3247 5.06585 10.4419 5.18306C10.5592 5.30027 10.625 5.45924 10.625 5.625V7.5C10.625 7.66576 10.5592 7.82473 10.4419 7.94194C10.3247 8.05915 10.1658 8.125 10 8.125C9.83424 8.125 9.67527 8.05915 9.55806 7.94194C9.44085 7.82473 9.375 7.66576 9.375 7.5V5.625C9.375 5.45924 9.44085 5.30027 9.55806 5.18306C9.67527 5.06585 9.83424 5 10 5ZM4.665 7.165C4.7822 7.04783 4.94115 6.98201 5.10687 6.98201C5.2726 6.98201 5.43155 7.04783 5.54875 7.165L6.6925 8.3075C6.75061 8.36561 6.79671 8.4346 6.82815 8.51052C6.8596 8.58644 6.87579 8.66782 6.87579 8.75C6.87579 8.83218 6.8596 8.91356 6.82815 8.98948C6.79671 9.0654 6.75061 9.13439 6.6925 9.1925C6.63439 9.25061 6.5654 9.29671 6.48948 9.32815C6.41356 9.3596 6.33218 9.37579 6.25 9.37579C6.16782 9.37579 6.08644 9.3596 6.01052 9.32815C5.9346 9.29671 5.86561 9.25061 5.8075 9.1925L4.665 8.04875C4.54783 7.93155 4.48201 7.7726 4.48201 7.60687C4.48201 7.44115 4.54783 7.2822 4.665 7.165ZM2.5 12.5C2.5 12.3342 2.56585 12.1753 2.68306 12.0581C2.80027 11.9408 2.95924 11.875 3.125 11.875H5.1075C5.27326 11.875 5.43223 11.9408 5.54944 12.0581C5.66665 12.1753 5.7325 12.3342 5.7325 12.5C5.7325 12.6658 5.66665 12.8247 5.54944 12.9419C5.43223 13.0592 5.27326 13.125 5.1075 13.125H3.125C2.95924 13.125 2.80027 13.0592 2.68306 12.9419C2.56585 12.8247 2.5 12.6658 2.5 12.5ZM14.375 12.5C14.375 12.3342 14.4408 12.1753 14.5581 12.0581C14.6753 11.9408 14.8342 11.875 15 11.875H16.875C17.0408 11.875 17.1997 11.9408 17.3169 12.0581C17.4342 12.1753 17.5 12.3342 17.5 12.5C17.5 12.6658 17.4342 12.8247 17.3169 12.9419C17.1997 13.0592 17.0408 13.125 16.875 13.125H15C14.8342 13.125 14.6753 13.0592 14.5581 12.9419C14.4408 12.8247 14.375 12.6658 14.375 12.5ZM15.3175 7.1925C15.2309 7.10636 15.1151 7.05596 14.993 7.05133C14.871 7.04669 14.7516 7.08817 14.6588 7.1675L9.43375 11.6375C9.31201 11.7401 9.21316 11.8671 9.14358 12.0102C9.07401 12.1534 9.03526 12.3096 9.02984 12.4687C9.02442 12.6278 9.05246 12.7863 9.11214 12.9338C9.17182 13.0814 9.26181 13.2148 9.37629 13.3254C9.49077 13.436 9.62719 13.5214 9.77674 13.576C9.92628 13.6305 10.0856 13.6531 10.2444 13.6422C10.4032 13.6314 10.558 13.5873 10.6987 13.5128C10.8394 13.4384 10.9629 13.3352 11.0612 13.21L15.3538 7.83875C15.4284 7.74527 15.466 7.62754 15.4593 7.50807C15.4526 7.38861 15.4021 7.27581 15.3175 7.19125V7.1925Z"
-                          fill="black"
-                        />
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M6.63479e-06 12.5001C0.00131335 11.0448 0.320223 9.60738 0.934472 8.28812C1.54872 6.96886 2.44351 5.79955 3.55636 4.86184C4.66922 3.92413 5.97333 3.24061 7.37765 2.85899C8.78197 2.47738 10.2527 2.40686 11.6871 2.65237C13.1214 2.89788 14.485 3.45349 15.6824 4.28043C16.8799 5.10736 17.8825 6.18569 18.6201 7.44013C19.3578 8.69457 19.8127 10.0949 19.9533 11.5433C20.0938 12.9918 19.9165 14.4535 19.4338 15.8263C18.8813 17.3926 17.1275 17.8288 15.7688 17.3888C14.1363 16.8601 11.8438 16.2501 10 16.2501C8.15751 16.2501 5.86251 16.8601 4.23126 17.3888C2.87251 17.8288 1.11876 17.3926 0.566257 15.8263C0.190184 14.7577 -0.00129928 13.6329 6.63479e-06 12.5001ZM10 3.75005C8.60047 3.74969 7.22127 4.08505 5.97815 4.72797C4.73503 5.37089 3.66426 6.30263 2.85571 7.44497C2.04717 8.58732 1.52444 9.90695 1.33139 11.2931C1.13834 12.6793 1.28061 14.0915 1.74626 15.4113C2.00001 16.1301 2.90001 16.5063 3.84626 16.1988C5.49626 15.6663 7.94751 15.0001 10 15.0001C12.0525 15.0001 14.505 15.6651 16.1538 16.2001C17.1 16.5063 18 16.1301 18.2538 15.4113C18.7194 14.0915 18.8617 12.6793 18.6686 11.2931C18.4756 9.90695 17.9528 8.58732 17.1443 7.44497C16.3358 6.30263 15.265 5.37089 14.0219 4.72797C12.7787 4.08505 11.3995 3.74969 10 3.75005Z"
-                          fill="black"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_2823_12977">
-                          <rect width="20" height="20" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-
-                    Performance
-                    <ion-icon
-                      name="chevron-down"
-                      class="dropdown-arrow"
-                    ></ion-icon>
+                <button class="accordion-button collapsed mk-btn" type="button" data-bs-toggle="collapse" data-bs-target="#basicCollapse" aria-expanded="false" aria-controls="basicCollapse">
+                  <h2 class="accordion-header" id="basicHeading">
+                    <i class="fa-solid fa-circle-info spec-icon" aria-hidden="true"></i>
+                    Basic Info
+                    <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
                   </h2>
                 </button>
-                <div
-                  id="perfCollapse"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="perfHeading"
-                  data-bs-parent="#specAccordion"
-                >
+                <div id="basicCollapse" class="accordion-collapse collapse" aria-labelledby="basicHeading" data-bs-parent="#specAccordion">
                   <div class="accordion-body p-0">
                     <div class="compare-spec-table">
-                      <!-- Header row with car models -->
                       <div class="compare-header-row">
                         <div class="compare-label">Specification</div>
                         <div class="compare-car">Toyota Camry</div>
@@ -1005,59 +929,106 @@
                         <div class="compare-car">Nissan Altima</div>
                         <div class="compare-car">Hyundai Sonata</div>
                       </div>
-
-                      <!-- Horsepower row -->
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Body Type:</div>
+                        <div class="compare-value">Sedan</div>
+                        <div class="compare-value">Sedan</div>
+                        <div class="compare-value">Sedan</div>
+                        <div class="compare-value">Sedan</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Transmission:</div>
+                        <div class="compare-value">6-speed Automatic</div>
+                        <div class="compare-value">6-speed Automatic</div>
+                        <div class="compare-value">CVT</div>
+                        <div class="compare-value">6-speed Automatic</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Drivetrain:</div>
+                        <div class="compare-value">FWD</div>
+                        <div class="compare-value">FWD</div>
+                        <div class="compare-value">AWD</div>
+                        <div class="compare-value">FWD</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Seats:</div>
+                        <div class="compare-value">5</div>
+                        <div class="compare-value">5</div>
+                        <div class="compare-value">5</div>
+                        <div class="compare-value">5</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Warranty:</div>
+                        <div class="compare-value">4 yrs / 80,000 km</div>
+                        <div class="compare-value">3 yrs / 60,000 km</div>
+                        <div class="compare-value">3 yrs / 60,000 km</div>
+                        <div class="compare-value">5 yrs / 100,000 km</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Performance -->
+              <div id="performance" class="spec-anchor"></div>
+              <div class="accordion-item mk-item">
+                <button class="accordion-button collapsed mk-btn" type="button" data-bs-toggle="collapse" data-bs-target="#perfCollapse" aria-expanded="false" aria-controls="perfCollapse">
+                  <h2 class="accordion-header" id="perfHeading">
+                    <i class="fa-solid fa-gauge-high spec-icon" aria-hidden="true"></i>
+                    Performance
+                    <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                  </h2>
+                </button>
+                <div id="perfCollapse" class="accordion-collapse collapse" aria-labelledby="perfHeading" data-bs-parent="#specAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="compare-spec-table">
+                      <div class="compare-header-row">
+                        <div class="compare-label">Specification</div>
+                        <div class="compare-car">Toyota Camry</div>
+                        <div class="compare-car">Honda Accord</div>
+                        <div class="compare-car">Nissan Altima</div>
+                        <div class="compare-car">Hyundai Sonata</div>
+                      </div>
                       <div class="compare-spec-row">
                         <div class="compare-label">Horsepower:</div>
-                        <div class="compare-value">670 hp</div>
-                        <div class="compare-value">670 hp</div>
-                        <div class="compare-value">670 hp</div>
-                        <div class="compare-value">670 hp</div>
+                        <div class="compare-value">203 hp</div>
+                        <div class="compare-value">192 hp</div>
+                        <div class="compare-value">188 hp</div>
+                        <div class="compare-value">200 hp</div>
                       </div>
-
-                      <!-- Torque row -->
                       <div class="compare-spec-row">
                         <div class="compare-label">Torque:</div>
-                        <div class="compare-value">155 Nm @ 4,000 rpm</div>
-                        <div class="compare-value">155 Nm @ 4,000 rpm</div>
-                        <div class="compare-value">155 Nm @ 4,000 rpm</div>
-                        <div class="compare-value">155 Nm @ 4,000 rpm</div>
+                        <div class="compare-value">243 Nm</div>
+                        <div class="compare-value">260 Nm</div>
+                        <div class="compare-value">244 Nm</div>
+                        <div class="compare-value">245 Nm</div>
                       </div>
-
-                      <!-- 0-100 km/h row -->
                       <div class="compare-spec-row">
                         <div class="compare-label">0-100 km/h:</div>
-                        <div class="compare-value">10.9 s</div>
-                        <div class="compare-value">10.9 s</div>
-                        <div class="compare-value">10.9 s</div>
-                        <div class="compare-value">10.9 s</div>
+                        <div class="compare-value">8.3 s</div>
+                        <div class="compare-value">7.6 s</div>
+                        <div class="compare-value">8.5 s</div>
+                        <div class="compare-value">8.1 s</div>
                       </div>
-
-                      <!-- Top Speed row -->
                       <div class="compare-spec-row">
                         <div class="compare-label">Top Speed:</div>
-                        <div class="compare-value">180 km/h</div>
-                        <div class="compare-value">180 km/h</div>
-                        <div class="compare-value">180 km/h</div>
-                        <div class="compare-value">180 km/h</div>
+                        <div class="compare-value">210 km/h</div>
+                        <div class="compare-value">205 km/h</div>
+                        <div class="compare-value">210 km/h</div>
+                        <div class="compare-value">209 km/h</div>
                       </div>
-
-                      <!-- Drive row -->
                       <div class="compare-spec-row">
-                        <div class="compare-label">Drive:</div>
+                        <div class="compare-label">Drive Type:</div>
+                        <div class="compare-value">FWD (AWD optional)</div>
                         <div class="compare-value">FWD</div>
-                        <div class="compare-value">FWD</div>
-                        <div class="compare-value">FWD</div>
+                        <div class="compare-value">AWD (Intelligent)</div>
                         <div class="compare-value">FWD</div>
                       </div>
-
-                      <!-- Steering row -->
                       <div class="compare-spec-row">
                         <div class="compare-label">Steering:</div>
-                        <div class="compare-value">Electric Power</div>
-                        <div class="compare-value">Electric Power</div>
-                        <div class="compare-value">Electric Power</div>
-                        <div class="compare-value">Electric Power</div>
+                        <div class="compare-value">Electric Power Steering</div>
+                        <div class="compare-value">Dual-pinion EPS</div>
+                        <div class="compare-value">Electric Power Steering</div>
+                        <div class="compare-value">Rack-mounted EPS</div>
                       </div>
                     </div>
                   </div>
@@ -1067,67 +1038,16 @@
               <!-- Efficiency -->
               <div id="efficiency" class="spec-anchor"></div>
               <div class="accordion-item mk-item">
-                <button
-                  class="accordion-button collapsed mk-btn"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#effCollapse"
-                  aria-expanded="false"
-                  aria-controls="effCollapse"
-                >
+                <button class="accordion-button collapsed mk-btn" type="button" data-bs-toggle="collapse" data-bs-target="#effCollapse" aria-expanded="false" aria-controls="effCollapse">
                   <h2 class="accordion-header" id="effHeading">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g clip-path="url(#clip0_3177_14512)">
-                        <path
-                          d="M11.1779 18.8888H3.27786C3.06868 18.8955 2.86029 18.8601 2.66508 18.7846C2.46987 18.7092 2.29182 18.5953 2.14152 18.4496C1.99122 18.304 1.87174 18.1296 1.79018 17.9369C1.70862 17.7442 1.66664 17.537 1.66675 17.3277V2.69992C1.68267 2.27352 1.86709 1.87085 2.17955 1.58027C2.49201 1.28968 2.90698 1.13491 3.33342 1.14992H11.2334C11.438 1.14534 11.6413 1.18234 11.8311 1.25869C12.0209 1.33503 12.1933 1.44913 12.3377 1.59406C12.4821 1.73899 12.5956 1.91174 12.6712 2.10183C12.7469 2.29192 12.7832 2.4954 12.7779 2.69992V17.3277C12.7772 17.5358 12.735 17.7417 12.6539 17.9333C12.5727 18.125 12.4542 18.2985 12.3053 18.4438C12.1563 18.5892 11.9799 18.7034 11.7864 18.7798C11.5928 18.8562 11.3859 18.8932 11.1779 18.8888ZM3.27786 2.22215C3.21346 2.21992 3.14927 2.23059 3.08906 2.25354C3.02885 2.27648 2.97383 2.31123 2.92725 2.35575C2.88066 2.40026 2.84345 2.45364 2.81779 2.51275C2.79214 2.57185 2.77856 2.63549 2.77786 2.69992V17.3277C2.77786 17.4559 2.82878 17.5788 2.91942 17.6695C3.01007 17.7601 3.133 17.811 3.26119 17.811H11.1779C11.3108 17.8128 11.4395 17.7638 11.5376 17.674C11.6356 17.5842 11.6957 17.4603 11.7056 17.3277V2.69992C11.6944 2.5683 11.6337 2.44582 11.5358 2.35717C11.4378 2.26851 11.3099 2.22026 11.1779 2.22215H3.27786Z"
-                          fill="#212121"
-                        />
-                        <path
-                          d="M16.4056 18.8887C16.1489 18.8909 15.8942 18.8422 15.6564 18.7455C15.4186 18.6487 15.2022 18.5059 15.0199 18.3251C14.8376 18.1443 14.6929 17.9292 14.5941 17.6922C14.4953 17.4552 14.4445 17.201 14.4445 16.9442V12.7776C14.4445 12.4829 14.3274 12.2003 14.1191 11.9919C13.9107 11.7835 13.6281 11.6664 13.3334 11.6664H12.539C12.3916 11.6664 12.2503 11.6079 12.1461 11.5037C12.0419 11.3995 11.9834 11.2582 11.9834 11.1109C11.9834 10.9636 12.0419 10.8222 12.1461 10.7181C12.2503 10.6139 12.3916 10.5553 12.539 10.5553H13.3334C13.9228 10.5553 14.488 10.7895 14.9047 11.2062C15.3215 11.623 15.5556 12.1882 15.5556 12.7776V16.9442C15.5556 17.1652 15.6434 17.3772 15.7997 17.5335C15.956 17.6898 16.1679 17.7776 16.389 17.7776C16.61 17.7776 16.8219 17.6898 16.9782 17.5335C17.1345 17.3772 17.2223 17.1652 17.2223 16.9442V9.61089L15.4834 5.72201C15.3795 5.50529 15.2163 5.32244 15.0128 5.19462C14.8093 5.06681 14.5737 4.99925 14.3334 4.99978H13.9278C13.7805 4.99978 13.6392 4.94125 13.535 4.83706C13.4308 4.73288 13.3723 4.59157 13.3723 4.44423C13.3723 4.29689 13.4308 4.15558 13.535 4.05139C13.6392 3.9472 13.7805 3.88867 13.9278 3.88867H14.3334C14.7953 3.88843 15.2474 4.02213 15.6349 4.27356C16.0224 4.525 16.3287 4.88339 16.5167 5.30534L18.3001 9.28312C18.3327 9.35465 18.3497 9.43229 18.3501 9.51089V16.9442C18.3501 17.4599 18.1452 17.9545 17.7806 18.3192C17.4159 18.6838 16.9213 18.8887 16.4056 18.8887Z"
-                          fill="#212121"
-                        />
-                        <path
-                          d="M10 4.99978H4.44447C4.29713 4.99978 4.15582 4.94125 4.05163 4.83706C3.94745 4.73288 3.88892 4.59157 3.88892 4.44423C3.88892 4.29688 3.94745 4.15558 4.05163 4.05139C4.15582 3.9472 4.29713 3.88867 4.44447 3.88867H10C10.1474 3.88867 10.2887 3.9472 10.3929 4.05139C10.4971 4.15558 10.5556 4.29688 10.5556 4.44423C10.5556 4.59157 10.4971 4.73288 10.3929 4.83706C10.2887 4.94125 10.1474 4.99978 10 4.99978Z"
-                          fill="#212121"
-                        />
-                        <path
-                          d="M10 7.22244H4.44447C4.29713 7.22244 4.15582 7.16391 4.05163 7.05972C3.94745 6.95553 3.88892 6.81423 3.88892 6.66688C3.88892 6.51954 3.94745 6.37823 4.05163 6.27405C4.15582 6.16986 4.29713 6.11133 4.44447 6.11133H10C10.1474 6.11133 10.2887 6.16986 10.3929 6.27405C10.4971 6.37823 10.5556 6.51954 10.5556 6.66688C10.5556 6.81423 10.4971 6.95553 10.3929 7.05972C10.2887 7.16391 10.1474 7.22244 10 7.22244Z"
-                          fill="#212121"
-                        />
-                        <path
-                          d="M13.8888 6.71105C13.7415 6.71105 13.6002 6.65251 13.496 6.54833C13.3918 6.44414 13.3333 6.30283 13.3333 6.15549V2.82216C13.3333 2.67481 13.3918 2.53351 13.496 2.42932C13.6002 2.32513 13.7415 2.2666 13.8888 2.2666C14.0361 2.2666 14.1775 2.32513 14.2816 2.42932C14.3858 2.53351 14.4444 2.67481 14.4444 2.82216V6.15549C14.4444 6.30283 14.3858 6.44414 14.2816 6.54833C14.1775 6.65251 14.0361 6.71105 13.8888 6.71105Z"
-                          fill="#212121"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_3177_14512">
-                          <rect width="20" height="20" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-
+                    <i class="fa-solid fa-bolt spec-icon" aria-hidden="true"></i>
                     Efficiency
-                    <ion-icon
-                      name="chevron-down"
-                      class="dropdown-arrow"
-                    ></ion-icon>
+                    <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
                   </h2>
                 </button>
-                <div
-                  id="effCollapse"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="effHeading"
-                  data-bs-parent="#specAccordion"
-                >
+                <div id="effCollapse" class="accordion-collapse collapse" aria-labelledby="effHeading" data-bs-parent="#specAccordion">
                   <div class="accordion-body p-0">
                     <div class="compare-spec-table">
-                      <!-- Header row with car models -->
                       <div class="compare-header-row">
                         <div class="compare-label">Specification</div>
                         <div class="compare-car">Toyota Camry</div>
@@ -1135,55 +1055,177 @@
                         <div class="compare-car">Nissan Altima</div>
                         <div class="compare-car">Hyundai Sonata</div>
                       </div>
-
-                      <!-- City row -->
                       <div class="compare-spec-row">
-                        <div class="compare-label">City:</div>
-                        <div class="compare-value">16 km/l</div>
-                        <div class="compare-value">16 km/l</div>
-                        <div class="compare-value">16 km/l</div>
-                        <div class="compare-value">16 km/l</div>
+                        <div class="compare-label">City Mileage (km/l):</div>
+                        <div class="compare-value">14</div>
+                        <div class="compare-value">13</div>
+                        <div class="compare-value">12</div>
+                        <div class="compare-value">13</div>
                       </div>
-
-                      <!-- Highway row -->
                       <div class="compare-spec-row">
-                        <div class="compare-label">Highway:</div>
-                        <div class="compare-value">22 km/l</div>
-                        <div class="compare-value">22 km/l</div>
-                        <div class="compare-value">22 km/l</div>
-                        <div class="compare-value">22 km/l</div>
+                        <div class="compare-label">Highway Mileage (km/l):</div>
+                        <div class="compare-value">19</div>
+                        <div class="compare-value">18</div>
+                        <div class="compare-value">17</div>
+                        <div class="compare-value">18</div>
                       </div>
-
-                      <!-- Combined row -->
                       <div class="compare-spec-row">
-                        <div class="compare-label">Combined:</div>
-                        <div class="compare-value">19 km/l</div>
-                        <div class="compare-value">19 km/l</div>
-                        <div class="compare-value">19 km/l</div>
-                        <div class="compare-value">19 km/l</div>
+                        <div class="compare-label">Combined Mileage (km/l):</div>
+                        <div class="compare-value">16</div>
+                        <div class="compare-value">15</div>
+                        <div class="compare-value">14</div>
+                        <div class="compare-value">15</div>
                       </div>
-
-                      <!-- Fuel Tank row -->
                       <div class="compare-spec-row">
-                        <div class="compare-label">Fuel Tank:</div>
-                        <div class="compare-value">42 L</div>
-                        <div class="compare-value">42 L</div>
-                        <div class="compare-value">42 L</div>
-                        <div class="compare-value">42 L</div>
+                        <div class="compare-label">Fuel Tank Capacity:</div>
+                        <div class="compare-value">50 L</div>
+                        <div class="compare-value">48 L</div>
+                        <div class="compare-value">60 L</div>
+                        <div class="compare-value">60 L</div>
                       </div>
-
-                      <!-- CO₂ Emission row -->
                       <div class="compare-spec-row">
-                        <div class="compare-label">CO₂ Emission:</div>
-                        <div class="compare-value">120 g/km</div>
-                        <div class="compare-value">120 g/km</div>
-                        <div class="compare-value">120 g/km</div>
-                        <div class="compare-value">120 g/km</div>
+                        <div class="compare-label">CO₂ Emissions:</div>
+                        <div class="compare-value">150 g/km</div>
+                        <div class="compare-value">152 g/km</div>
+                        <div class="compare-value">165 g/km</div>
+                        <div class="compare-value">158 g/km</div>
                       </div>
-
-                      <!-- Start/Stop row -->
                       <div class="compare-spec-row">
-                        <div class="compare-label">Start/Stop:</div>
+                        <div class="compare-label">Start/Stop System:</div>
+                        <div class="compare-value">Yes</div>
+                        <div class="compare-value">Yes</div>
+                        <div class="compare-value">No</div>
+                        <div class="compare-value">Yes</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dimension -->
+              <div id="dimension" class="spec-anchor"></div>
+              <div class="accordion-item mk-item">
+                <button class="accordion-button collapsed mk-btn" type="button" data-bs-toggle="collapse" data-bs-target="#dimCollapse" aria-expanded="false" aria-controls="dimCollapse">
+                  <h2 class="accordion-header" id="dimHeading">
+                    <i class="fa-solid fa-arrows-up-down-left-right spec-icon" aria-hidden="true"></i>
+                    Dimension
+                    <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                  </h2>
+                </button>
+                <div id="dimCollapse" class="accordion-collapse collapse" aria-labelledby="dimHeading" data-bs-parent="#specAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="compare-spec-table">
+                      <div class="compare-header-row">
+                        <div class="compare-label">Specification</div>
+                        <div class="compare-car">Toyota Camry</div>
+                        <div class="compare-car">Honda Accord</div>
+                        <div class="compare-car">Nissan Altima</div>
+                        <div class="compare-car">Hyundai Sonata</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Length:</div>
+                        <div class="compare-value">4,885 mm</div>
+                        <div class="compare-value">4,901 mm</div>
+                        <div class="compare-value">4,900 mm</div>
+                        <div class="compare-value">4,900 mm</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Width:</div>
+                        <div class="compare-value">1,840 mm</div>
+                        <div class="compare-value">1,862 mm</div>
+                        <div class="compare-value">1,850 mm</div>
+                        <div class="compare-value">1,860 mm</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Height:</div>
+                        <div class="compare-value">1,445 mm</div>
+                        <div class="compare-value">1,450 mm</div>
+                        <div class="compare-value">1,440 mm</div>
+                        <div class="compare-value">1,445 mm</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Wheelbase:</div>
+                        <div class="compare-value">2,825 mm</div>
+                        <div class="compare-value">2,830 mm</div>
+                        <div class="compare-value">2,825 mm</div>
+                        <div class="compare-value">2,840 mm</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Ground Clearance:</div>
+                        <div class="compare-value">145 mm</div>
+                        <div class="compare-value">140 mm</div>
+                        <div class="compare-value">136 mm</div>
+                        <div class="compare-value">150 mm</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Boot Space:</div>
+                        <div class="compare-value">524 L</div>
+                        <div class="compare-value">473 L</div>
+                        <div class="compare-value">436 L</div>
+                        <div class="compare-value">510 L</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Safety -->
+              <div id="safety" class="spec-anchor"></div>
+              <div class="accordion-item mk-item">
+                <button class="accordion-button collapsed mk-btn" type="button" data-bs-toggle="collapse" data-bs-target="#safetyCollapse" aria-expanded="false" aria-controls="safetyCollapse">
+                  <h2 class="accordion-header" id="safetyHeading">
+                    <i class="fa-solid fa-shield-halved spec-icon" aria-hidden="true"></i>
+                    Safety
+                    <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                  </h2>
+                </button>
+                <div id="safetyCollapse" class="accordion-collapse collapse" aria-labelledby="safetyHeading" data-bs-parent="#specAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="compare-spec-table">
+                      <div class="compare-header-row">
+                        <div class="compare-label">Specification</div>
+                        <div class="compare-car">Toyota Camry</div>
+                        <div class="compare-car">Honda Accord</div>
+                        <div class="compare-car">Nissan Altima</div>
+                        <div class="compare-car">Hyundai Sonata</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Airbags:</div>
+                        <div class="compare-value">10</div>
+                        <div class="compare-value">8</div>
+                        <div class="compare-value">6</div>
+                        <div class="compare-value">6</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">ABS / EBD:</div>
+                        <div class="compare-value">Yes / Yes</div>
+                        <div class="compare-value">Yes / Yes</div>
+                        <div class="compare-value">Yes / Yes</div>
+                        <div class="compare-value">Yes / Yes</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">ESC:</div>
+                        <div class="compare-value">Standard</div>
+                        <div class="compare-value">Standard</div>
+                        <div class="compare-value">Standard</div>
+                        <div class="compare-value">Standard</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">ISOFIX:</div>
+                        <div class="compare-value">Yes</div>
+                        <div class="compare-value">Yes</div>
+                        <div class="compare-value">Yes</div>
+                        <div class="compare-value">Yes</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">NCAP Rating:</div>
+                        <div class="compare-value">5-Star</div>
+                        <div class="compare-value">5-Star</div>
+                        <div class="compare-value">5-Star</div>
+                        <div class="compare-value">5-Star</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">TPMS:</div>
                         <div class="compare-value">Yes</div>
                         <div class="compare-value">Yes</div>
                         <div class="compare-value">Yes</div>
@@ -1194,10 +1236,410 @@
                 </div>
               </div>
 
+              <!-- Brake, Suspension &amp; Wheel -->
+              <div id="brake" class="spec-anchor"></div>
+              <div class="accordion-item mk-item">
+                <button class="accordion-button collapsed mk-btn" type="button" data-bs-toggle="collapse" data-bs-target="#brakeCollapse" aria-expanded="false" aria-controls="brakeCollapse">
+                  <h2 class="accordion-header" id="brakeHeading">
+                    <i class="fa-solid fa-dharmachakra spec-icon" aria-hidden="true"></i>
+                    Brake, Suspension &amp; Wheel
+                    <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                  </h2>
+                </button>
+                <div id="brakeCollapse" class="accordion-collapse collapse" aria-labelledby="brakeHeading" data-bs-parent="#specAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="compare-spec-table">
+                      <div class="compare-header-row">
+                        <div class="compare-label">Specification</div>
+                        <div class="compare-car">Toyota Camry</div>
+                        <div class="compare-car">Honda Accord</div>
+                        <div class="compare-car">Nissan Altima</div>
+                        <div class="compare-car">Hyundai Sonata</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Front Brake:</div>
+                        <div class="compare-value">Ventilated Disc</div>
+                        <div class="compare-value">Ventilated Disc</div>
+                        <div class="compare-value">Ventilated Disc</div>
+                        <div class="compare-value">Ventilated Disc</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Rear Brake:</div>
+                        <div class="compare-value">Solid Disc</div>
+                        <div class="compare-value">Solid Disc</div>
+                        <div class="compare-value">Disc</div>
+                        <div class="compare-value">Disc</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Front Suspension:</div>
+                        <div class="compare-value">MacPherson Strut</div>
+                        <div class="compare-value">MacPherson Strut</div>
+                        <div class="compare-value">MacPherson Strut</div>
+                        <div class="compare-value">MacPherson Strut</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Rear Suspension:</div>
+                        <div class="compare-value">Multi-link</div>
+                        <div class="compare-value">Multi-link</div>
+                        <div class="compare-value">Multi-link</div>
+                        <div class="compare-value">Multi-link</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Wheel Type:</div>
+                        <div class="compare-value">Alloy</div>
+                        <div class="compare-value">Alloy</div>
+                        <div class="compare-value">Alloy</div>
+                        <div class="compare-value">Alloy</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Wheel Size:</div>
+                        <div class="compare-value">17&quot; - 18&quot;</div>
+                        <div class="compare-value">17&quot; - 19&quot;</div>
+                        <div class="compare-value">16&quot; - 19&quot;</div>
+                        <div class="compare-value">17&quot; - 19&quot;</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Technology -->
+              <div id="technology" class="spec-anchor"></div>
+              <div class="accordion-item mk-item">
+                <button class="accordion-button collapsed mk-btn" type="button" data-bs-toggle="collapse" data-bs-target="#techCollapse" aria-expanded="false" aria-controls="techCollapse">
+                  <h2 class="accordion-header" id="techHeading">
+                    <i class="fa-solid fa-wifi spec-icon" aria-hidden="true"></i>
+                    Technology &amp; Connectivity
+                    <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                  </h2>
+                </button>
+                <div id="techCollapse" class="accordion-collapse collapse" aria-labelledby="techHeading" data-bs-parent="#specAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="compare-spec-table">
+                      <div class="compare-header-row">
+                        <div class="compare-label">Specification</div>
+                        <div class="compare-car">Toyota Camry</div>
+                        <div class="compare-car">Honda Accord</div>
+                        <div class="compare-car">Nissan Altima</div>
+                        <div class="compare-car">Hyundai Sonata</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Infotainment:</div>
+                        <div class="compare-value">9&quot; Touchscreen</div>
+                        <div class="compare-value">12.3&quot; Touchscreen</div>
+                        <div class="compare-value">8&quot; Touchscreen</div>
+                        <div class="compare-value">10.25&quot; Curved Display</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Connectivity:</div>
+                        <div class="compare-value">Apple CarPlay / Android Auto</div>
+                        <div class="compare-value">Wireless Apple CarPlay / Android Auto</div>
+                        <div class="compare-value">Apple CarPlay / Android Auto</div>
+                        <div class="compare-value">Wireless Apple CarPlay / Android Auto</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">USB Ports:</div>
+                        <div class="compare-value">2 front + 2 rear</div>
+                        <div class="compare-value">2 front + 2 rear (USB-C)</div>
+                        <div class="compare-value">2 front + 1 rear</div>
+                        <div class="compare-value">2 front + 2 rear</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Bluetooth:</div>
+                        <div class="compare-value">Bluetooth w/ Voice Assist</div>
+                        <div class="compare-value">Bluetooth w/ Voice Assist</div>
+                        <div class="compare-value">Bluetooth</div>
+                        <div class="compare-value">Bluetooth w/ Voice Assist</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Navigation:</div>
+                        <div class="compare-value">Built-in Navigation</div>
+                        <div class="compare-value">Google Built-in</div>
+                        <div class="compare-value">Optional Navigation Pack</div>
+                        <div class="compare-value">Built-in Navigation</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Wireless Charging:</div>
+                        <div class="compare-value">Available</div>
+                        <div class="compare-value">Standard (Touring)</div>
+                        <div class="compare-value">—</div>
+                        <div class="compare-value">Standard</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interior -->
+              <div id="interior" class="spec-anchor"></div>
+              <div class="accordion-item mk-item">
+                <button class="accordion-button collapsed mk-btn" type="button" data-bs-toggle="collapse" data-bs-target="#interiorCollapse" aria-expanded="false" aria-controls="interiorCollapse">
+                  <h2 class="accordion-header" id="interiorHeading">
+                    <i class="fa-solid fa-couch spec-icon" aria-hidden="true"></i>
+                    Interior Features
+                    <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                  </h2>
+                </button>
+                <div id="interiorCollapse" class="accordion-collapse collapse" aria-labelledby="interiorHeading" data-bs-parent="#specAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="compare-spec-table">
+                      <div class="compare-header-row">
+                        <div class="compare-label">Specification</div>
+                        <div class="compare-car">Toyota Camry</div>
+                        <div class="compare-car">Honda Accord</div>
+                        <div class="compare-car">Nissan Altima</div>
+                        <div class="compare-car">Hyundai Sonata</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Seat Material:</div>
+                        <div class="compare-value">Leather (XLE)</div>
+                        <div class="compare-value">Leather (Touring)</div>
+                        <div class="compare-value">Cloth / Leatherette</div>
+                        <div class="compare-value">Leatherette w/ Ventilation</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Climate Control:</div>
+                        <div class="compare-value">Dual-zone Automatic</div>
+                        <div class="compare-value">Dual-zone Automatic</div>
+                        <div class="compare-value">Dual-zone Automatic</div>
+                        <div class="compare-value">Dual-zone Automatic</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Steering Wheel:</div>
+                        <div class="compare-value">Leather w/ Controls</div>
+                        <div class="compare-value">Heated Leather</div>
+                        <div class="compare-value">Leather-wrapped</div>
+                        <div class="compare-value">D-cut Leather</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Interior Colors:</div>
+                        <div class="compare-value">Black / Beige</div>
+                        <div class="compare-value">Black / Tan</div>
+                        <div class="compare-value">Charcoal / Gray</div>
+                        <div class="compare-value">Navy / Gray</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Sunroof:</div>
+                        <div class="compare-value">Panoramic Optional</div>
+                        <div class="compare-value">One-touch Moonroof</div>
+                        <div class="compare-value">Optional Moonroof</div>
+                        <div class="compare-value">Panoramic Sunroof</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Rear AC Vents:</div>
+                        <div class="compare-value">Yes</div>
+                        <div class="compare-value">Yes</div>
+                        <div class="compare-value">Yes</div>
+                        <div class="compare-value">Yes</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Exterior -->
+              <div id="exterior" class="spec-anchor"></div>
+              <div class="accordion-item mk-item">
+                <button class="accordion-button collapsed mk-btn" type="button" data-bs-toggle="collapse" data-bs-target="#exteriorCollapse" aria-expanded="false" aria-controls="exteriorCollapse">
+                  <h2 class="accordion-header" id="exteriorHeading">
+                    <i class="fa-solid fa-car-side spec-icon" aria-hidden="true"></i>
+                    Exterior Features
+                    <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                  </h2>
+                </button>
+                <div id="exteriorCollapse" class="accordion-collapse collapse" aria-labelledby="exteriorHeading" data-bs-parent="#specAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="compare-spec-table">
+                      <div class="compare-header-row">
+                        <div class="compare-label">Specification</div>
+                        <div class="compare-car">Toyota Camry</div>
+                        <div class="compare-car">Honda Accord</div>
+                        <div class="compare-car">Nissan Altima</div>
+                        <div class="compare-car">Hyundai Sonata</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Headlights:</div>
+                        <div class="compare-value">Bi-LED Projector</div>
+                        <div class="compare-value">Full LED</div>
+                        <div class="compare-value">LED Reflector</div>
+                        <div class="compare-value">Parametric LED</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Fog Lamps:</div>
+                        <div class="compare-value">LED</div>
+                        <div class="compare-value">LED</div>
+                        <div class="compare-value">Halogen</div>
+                        <div class="compare-value">LED Cornering</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">ORVMs:</div>
+                        <div class="compare-value">Power-folding w/ memory</div>
+                        <div class="compare-value">Power-folding auto-dim</div>
+                        <div class="compare-value">Power-adjust heated</div>
+                        <div class="compare-value">Power-folding w/ puddle lamps</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Wheel Design:</div>
+                        <div class="compare-value">17&quot; Multi-spoke Alloy</div>
+                        <div class="compare-value">19&quot; Machine-cut Alloy</div>
+                        <div class="compare-value">18&quot; Split-spoke Alloy</div>
+                        <div class="compare-value">18&quot; Aero Alloy</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Roof Options:</div>
+                        <div class="compare-value">Glass Roof (XSE)</div>
+                        <div class="compare-value">One-touch Moonroof</div>
+                        <div class="compare-value">Standard Roof</div>
+                        <div class="compare-value">Panoramic Roof</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Daytime Running Lights:</div>
+                        <div class="compare-value">Signature LED DRLs</div>
+                        <div class="compare-value">LED Light-bar DRLs</div>
+                        <div class="compare-value">LED DRLs</div>
+                        <div class="compare-value">Horizon LED DRLs</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Warranty -->
+              <div id="warranty" class="spec-anchor"></div>
+              <div class="accordion-item mk-item">
+                <button class="accordion-button collapsed mk-btn" type="button" data-bs-toggle="collapse" data-bs-target="#warrantyCollapse" aria-expanded="false" aria-controls="warrantyCollapse">
+                  <h2 class="accordion-header" id="warrantyHeading">
+                    <i class="fa-solid fa-shield-check spec-icon" aria-hidden="true"></i>
+                    Warranty &amp; Service
+                    <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                  </h2>
+                </button>
+                <div id="warrantyCollapse" class="accordion-collapse collapse" aria-labelledby="warrantyHeading" data-bs-parent="#specAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="compare-spec-table">
+                      <div class="compare-header-row">
+                        <div class="compare-label">Specification</div>
+                        <div class="compare-car">Toyota Camry</div>
+                        <div class="compare-car">Honda Accord</div>
+                        <div class="compare-car">Nissan Altima</div>
+                        <div class="compare-car">Hyundai Sonata</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Warranty Coverage:</div>
+                        <div class="compare-value">4 yrs / 80,000 km</div>
+                        <div class="compare-value">3 yrs / 60,000 km</div>
+                        <div class="compare-value">3 yrs / 60,000 km</div>
+                        <div class="compare-value">5 yrs / 100,000 km</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Service Interval:</div>
+                        <div class="compare-value">10,000 km / 12 mo</div>
+                        <div class="compare-value">10,000 km / 12 mo</div>
+                        <div class="compare-value">10,000 km / 12 mo</div>
+                        <div class="compare-value">10,000 km / 12 mo</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Roadside Assistance:</div>
+                        <div class="compare-value">3 yrs Standard</div>
+                        <div class="compare-value">3 yrs Standard</div>
+                        <div class="compare-value">2 yrs Standard</div>
+                        <div class="compare-value">5 yrs Standard</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Service Network:</div>
+                        <div class="compare-value">120+ centers</div>
+                        <div class="compare-value">100+ centers</div>
+                        <div class="compare-value">90+ centers</div>
+                        <div class="compare-value">80+ centers</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Extended Warranty:</div>
+                        <div class="compare-value">Up to 6 yrs</div>
+                        <div class="compare-value">Up to 7 yrs</div>
+                        <div class="compare-value">Up to 6 yrs</div>
+                        <div class="compare-value">Up to 7 yrs</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Free Service Visits:</div>
+                        <div class="compare-value">3 visits</div>
+                        <div class="compare-value">3 visits</div>
+                        <div class="compare-value">2 visits</div>
+                        <div class="compare-value">4 visits</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Other -->
+              <div id="other" class="spec-anchor"></div>
+              <div class="accordion-item mk-item">
+                <button class="accordion-button collapsed mk-btn" type="button" data-bs-toggle="collapse" data-bs-target="#otherCollapse" aria-expanded="false" aria-controls="otherCollapse">
+                  <h2 class="accordion-header" id="otherHeading">
+                    <i class="fa-solid fa-file-lines spec-icon" aria-hidden="true"></i>
+                    Other Details
+                    <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                  </h2>
+                </button>
+                <div id="otherCollapse" class="accordion-collapse collapse" aria-labelledby="otherHeading" data-bs-parent="#specAccordion">
+                  <div class="accordion-body p-0">
+                    <div class="compare-spec-table">
+                      <div class="compare-header-row">
+                        <div class="compare-label">Specification</div>
+                        <div class="compare-car">Toyota Camry</div>
+                        <div class="compare-car">Honda Accord</div>
+                        <div class="compare-car">Nissan Altima</div>
+                        <div class="compare-car">Hyundai Sonata</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">ADAS Suite:</div>
+                        <div class="compare-value">Toyota Safety Sense 3.0</div>
+                        <div class="compare-value">Honda Sensing</div>
+                        <div class="compare-value">Nissan ProPILOT Assist</div>
+                        <div class="compare-value">Hyundai SmartSense</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Keyless Entry:</div>
+                        <div class="compare-value">Smart Key</div>
+                        <div class="compare-value">Smart Entry</div>
+                        <div class="compare-value">Intelligent Key</div>
+                        <div class="compare-value">Digital Key 2 Touch</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Push Start:</div>
+                        <div class="compare-value">Yes</div>
+                        <div class="compare-value">Yes</div>
+                        <div class="compare-value">Yes</div>
+                        <div class="compare-value">Yes</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Parking Sensors:</div>
+                        <div class="compare-value">Front &amp; Rear</div>
+                        <div class="compare-value">Front &amp; Rear</div>
+                        <div class="compare-value">Rear</div>
+                        <div class="compare-value">Front &amp; Rear</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Camera:</div>
+                        <div class="compare-value">Panoramic View Monitor</div>
+                        <div class="compare-value">Multi-angle Rear Camera</div>
+                        <div class="compare-value">Rear View Camera</div>
+                        <div class="compare-value">Surround View Monitor</div>
+                      </div>
+                      <div class="compare-spec-row">
+                        <div class="compare-label">Drive Modes:</div>
+                        <div class="compare-value">Eco / Normal / Sport</div>
+                        <div class="compare-value">Normal / Sport / Individual</div>
+                        <div class="compare-value">Normal / Sport</div>
+                        <div class="compare-value">Eco / Comfort / Sport / Smart</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
-        
 
         <section class="popular-comparisons">
           <div class="pc-wrap">
@@ -1305,45 +1747,54 @@
           </details>
         </section>
         <script>
-          // Smooth height animation for <details> FAQ items
-          document.addEventListener('DOMContentLoaded', function(){
+          // Slide open / close animation for FAQ <details>
+          document.addEventListener('DOMContentLoaded', function () {
             const faqDetails = document.querySelectorAll('.faqs details.faq');
-            faqDetails.forEach(function(details){
-              const body = details.querySelector('.faq-body');
-              if(!body) return;
 
-              // Ensure closed state styles are correct on load
-              if(!details.open){
+            faqDetails.forEach(function (details) {
+              const body = details.querySelector('.faq-body');
+              if (!body) return;
+
+              if (!details.open) {
                 body.style.height = '0px';
-                body.style.opacity = '0';
+              } else {
+                body.style.height = body.scrollHeight + 'px';
+                const setAutoHeight = function handleInitial(e) {
+                  if (e.propertyName !== 'height') return;
+                  body.style.height = '';
+                  body.removeEventListener('transitionend', handleInitial);
+                };
+                body.addEventListener('transitionend', setAutoHeight);
               }
 
-              details.addEventListener('toggle', function(){
+              details.addEventListener('toggle', function () {
                 const isOpening = details.open;
-                // Closing animation
-                if(!isOpening){
-                  body.style.height = body.scrollHeight + 'px';
-                  // force reflow
-                  void body.offsetHeight;
+                const targetHeight = body.scrollHeight;
+
+                body.classList.add('is-sliding');
+
+                if (isOpening) {
                   body.style.height = '0px';
-                  body.style.opacity = '0';
-                  return;
+                  requestAnimationFrame(function () {
+                    body.style.height = targetHeight + 'px';
+                  });
+                } else {
+                  body.style.height = targetHeight + 'px';
+                  requestAnimationFrame(function () {
+                    body.style.height = '0px';
+                  });
                 }
 
-                // Opening animation
-                body.style.height = '0px';
-                body.style.opacity = '0';
-                // force reflow
-                void body.offsetHeight;
-                body.style.height = body.scrollHeight + 'px';
-                body.style.opacity = '1';
-
-                const onEnd = function(e){
-                  if(e.propertyName !== 'height') return;
-                  body.style.height = '';
-                  body.removeEventListener('transitionend', onEnd);
+                const onTransitionEnd = function (event) {
+                  if (event.propertyName !== 'height') return;
+                  body.classList.remove('is-sliding');
+                  if (isOpening) {
+                    body.style.height = '';
+                  }
+                  body.removeEventListener('transitionend', onTransitionEnd);
                 };
-                body.addEventListener('transitionend', onEnd);
+
+                body.addEventListener('transitionend', onTransitionEnd);
               });
             });
           });

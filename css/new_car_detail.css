@@ -480,6 +480,16 @@ margin-right: 36px;
   justify-content: space-between;
   width: 100%;
 }
+.spec-icon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  font-size: 18px;
+  color: var(--primary-dark);
+}
 .accordion-button::after {
   display: none !important;
 }
