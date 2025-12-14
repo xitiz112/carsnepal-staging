@@ -361,11 +361,7 @@ header, .navbar, .header-container { max-width: 100%; }
     flex-wrap: nowrap !important; gap: 6px !important; margin-left: 6px !important;
   }
 
-  /* Hide Notification (2nd item) on mobile/tablet */
-  .header-top .header-actions > li:nth-child(2){ display:none !important; }
-  .header-top .header-actions > li:nth-child(1){ display:none !important; }
-  .header-top .header-actions .badge-dot{ display:none !important; }
-  .header-top .header-actions .person-outline{height: 5px !important;}
+  /* Mobile header-actions: compact spacing; visibility controlled per item with utility classes */
 
   /* Reorder: Hello/Login (3rd) first, Compare (1st) second, Flag (4th) third */
   .header-top .header-actions > li:nth-child(3){ order:1; } /* Hello, Login */
@@ -427,15 +423,28 @@ header, .navbar, .header-container { max-width: 100%; }
 .header-top .header-actions .nav-notification { display:none !important; }
 
 /* Explicit order for mobile */
-.header-top .header-actions .hello-login   { order:1;}
-.header-top .header-actions .lang-flag     { order:2; }
-.header-top .header-actions .nav-hamburger { order:3; display:flex !important; }
+.header-top .header-actions .nav-sell-car  { order:0; } /* Sell My Car first */
+.header-top .header-actions .nav-compare    { order:1; }
+.header-top .header-actions .hello-login   { order:2;}
+.header-top .header-actions .lang-flag     { order:3; }
+.header-top .header-actions .nav-hamburger { order:4; display:flex !important; }
 
   /* Kill the huge right gap on the flag */
   .flag-nepal{ margin-right: 0 !important; }
 
   /* Keep the group tight */
-  .header-top .header-actions{ gap:0px !important; }
+  .header-top .header-actions{ gap:6px !important; }
+  
+  /* Ensure Sell My Car button has proper spacing and alignment */
+  .header-top .header-actions .nav-sell-car {
+    margin-right: 0 !important;
+    flex-shrink: 0;
+  }
+  
+  .header-top .header-actions .nav-sell-car .btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 #mobileMenu,
   #mobileMenu.collapse,
   #mobileMenu.collapsing,
@@ -1161,8 +1170,8 @@ font-size: 13px;
   height: 37px;
   margin-top: 20px;
   border: 1px solid #ffffff;
-  color: #ffffff;
-  background: transparent;
+  color: var(--primary-color);
+  background: #ffffff;
   /* backdrop-filter: blur(1px); */
   padding: 8px;
   display: inline-flex;
@@ -1170,8 +1179,8 @@ font-size: 13px;
   justify-content: center;
 }
 .btn-quiz:hover {
-  color: var(--primary-color);
-  background: #ffffff;
+  color: #ffffff;
+  background: transparent;
   border-color: #ffffff;
 }
 /* Main section class */
@@ -2370,6 +2379,8 @@ position: absolute;
   border-radius: 7px;
   padding: clamp(6px, .9vw, 10px) clamp(12px, 1.8vw, 16px);
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .nav-sell-car .btn-primary:hover,
@@ -4197,6 +4208,13 @@ transition-duration: 0.2s;
 /* Grid Layout for 7 cards per row */
 
 /* Brand Card */
+.brand-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
 .brand-card {
   /* background: #fff;
   border-radius: 12px;

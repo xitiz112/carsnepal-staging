@@ -10,12 +10,13 @@
   --shadow:0 12px 28px -14px rgba(0,0,0,.25);
 }
 
-.container{ max-width:1120px; margin:auto; padding:0 16px; }
+/* Container for content only - exclude header container */
+.container:not(.header-container){ max-width:1120px; margin:auto; padding:0 16px; }
 body{ font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink); }
 
 /* Head */
 .match-head{ text-align:center; margin:34px 0 18px; }
-.match-head h1{ font-size:27px; font-weight:600; margin:0 0 6px; }
+.match-head h1{ font-size:27px; font-weight:600; margin:0 0 6px; color:#4a3732; }
 .match-head .sub{ font-size:15px;font-weight: 400; color:var(--muted); margin:0; }
 
 /* Chips */
@@ -59,4 +60,11 @@ body{ font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,sans-serif; 
 /* Responsive */
 @media (min-width: 760px){
   .pick-card{ grid-template-columns: 1.2fr 1fr; padding:18px; }
+}
+
+/* Remove margin from Sell My Car button on quiz output page */
+.header-top .header-actions .nav-sell-car {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  margin: 0 !important;
 }

@@ -76,7 +76,25 @@
 
             <!-- Right items -->
             <ul class="navbar-nav ms-auto align-items-center header-actions">
-               <li class="nav-item nav-compare">
+              <li class="nav-item nav-sell-car me-2 d-flex d-lg-none">
+                <a
+                  class="btn btn-primary btn-sm d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                  Sell My Car
+                </a>
+              </li>
+              <li class="nav-item nav-sell-car me-2 d-none d-lg-flex">
+                <a
+                  class="btn btn-primary btn-sm d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                  Sell My Car
+                </a>
+              </li>
+             <li class="nav-item nav-compare">
                 <a
                   class="nav-link p-0 d-flex align-items-center"
                   href="compare.html"
@@ -89,43 +107,34 @@
                   Compare
                 </a>
               </li>
-              <li class="nav-item nav-sell-car me-2">
+              <li class="nav-item hello-login dropdown d-none d-lg-flex">
                 <a
-                  class="btn btn-primary btn-sm d-flex align-items-center"
+                  class="nav-link p-0 d-flex align-items-center dropdown-toggle"
                   href="#"
-                  style="white-space: nowrap"
-                >
-                  Sell My Car
-                </a>
-              </li>
-              <li class="nav-item nav-notification">
-                <a
-                  class="nav-link p-0 d-flex align-items-center"
-                  href="#"
-                  style="white-space: nowrap"
-                >
-                   <ion-icon
-                  name="notifications-outline"
-                  style="width: 18px; height: 18px; margin-right:8px"
-                ></ion-icon>
-                  Notification
-                </a>
-              </li>
-              <li class="nav-item hello-login">
-                <a
-                  class="nav-link p-0 d-flex align-items-center"
-                  href="login.html"
+                  id="userDropdown"
+                  role="button"
+                  aria-expanded="false"
                   style="white-space: nowrap"
                 >
                    <ion-icon
                   name="person-outline"
                   style="width: 18px; height: 18px; margin-right:8px"
                 ></ion-icon>
-                  Hello, Login
-                  <span class="badge-dot ms-2"></span>
+                  Hello, Login<span class="badge-dot ms-1"></span>
                 </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                  <li><a class="dropdown-item" href="personal_info.html">
+                    <ion-icon name="person-outline" style="width: 16px; height: 16px; margin-right: 8px;"></ion-icon>
+                    Profile
+                  </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#" onclick="logout()">
+                    <ion-icon name="log-out-outline" style="width: 16px; height: 16px; margin-right: 8px;"></ion-icon>
+                    Logout
+                  </a></li>
+                </ul>
               </li>
- <li class="nav-item lang-flag">
+ <li class="nav-item lang-flag d-none d-lg-flex">
   <div class="language-switcher">
     <a href="#" class="flag-nepal" id="languageButton" aria-label="Nepal Flag">
       <img src="assets/images/nepal-flag.png" alt="Nepal Flag" id="currentFlag" />
@@ -194,6 +203,11 @@
     <li class="nav-item">
       <a class="nav-link d-flex align-items-center" href="compare.html">
         Compare
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link d-flex align-items-center" href="#">
+        Sell My Car
       </a>
     </li>
   </ul>
@@ -367,6 +381,81 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         });
     });
+});
+
+// Logout function
+function logout() {
+    // Clear any stored user data
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('userData');
+    sessionStorage.clear();
+    
+    // Show confirmation message
+    if (confirm('Are you sure you want to logout?')) {
+        // Redirect to login page
+        window.location.href = 'login.html';
+    }
+}
+
+// Debug dropdown functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownToggle = document.getElementById('userDropdown');
+    const dropdownMenu = document.querySelector('.hello-login .dropdown-menu');
+    
+    if (dropdownToggle && dropdownMenu) {
+        console.log('Dropdown elements found');
+        
+        // Ensure dropdown starts hidden
+        dropdownMenu.classList.remove('show');
+        console.log('Initial dropdown state: hidden');
+        
+        // Add click event listener for proper toggle
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Dropdown clicked');
+            
+            // Simple toggle logic
+            if (dropdownMenu.classList.contains('show')) {
+                // Hide dropdown
+                dropdownMenu.classList.remove('show');
+                dropdownMenu.style.display = 'none';
+                dropdownMenu.style.opacity = '0';
+                dropdownMenu.style.visibility = 'hidden';
+                dropdownMenu.style.transform = 'translateY(-10px)';
+                console.log('Dropdown hidden');
+            } else {
+                // Show dropdown
+                dropdownMenu.classList.add('show');
+                dropdownMenu.style.display = 'block';
+                dropdownMenu.style.opacity = '1';
+                dropdownMenu.style.visibility = 'visible';
+                dropdownMenu.style.transform = 'translateY(0)';
+                console.log('Dropdown shown');
+                
+                // Debug information
+                setTimeout(() => {
+                    const rect = dropdownMenu.getBoundingClientRect();
+                    console.log('Dropdown position:', rect);
+                    console.log('Dropdown dimensions:', rect.width + 'x' + rect.height);
+                }, 50);
+            }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+                dropdownMenu.style.display = 'none';
+                dropdownMenu.style.opacity = '0';
+                dropdownMenu.style.visibility = 'hidden';
+                dropdownMenu.style.transform = 'translateY(-10px)';
+                console.log('Dropdown closed by outside click');
+            }
+        });
+    } else {
+        console.log('Dropdown elements not found');
+    }
 });
 </script>
 <!-- For mobile view  -->
@@ -749,7 +838,7 @@ document.addEventListener('DOMContentLoaded', function() {
           class="d-flex flex-column flex-lg-row align-items-center justify-content-between "
         >
           <p class="copyright mb-2 mb-lg-0 small">
-            &copy; 2024 Motokhabar. All rights reserved.
+            ©2025 Carsnepal. All rights reserved.
           </p>
           <ul class="list-inline mb-0 footer-bottom-links">
             <li class="list-inline-item"><a href="#">Privacy</a></li>
