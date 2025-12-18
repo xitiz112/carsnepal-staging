@@ -3503,6 +3503,104 @@ transition-duration: 0.2s;
   .browsebytype .type-card img{ height: 120px; }
 }
 
+/* ===== Browse by Type Slider for Mobile ===== */
+/* Hide slider buttons on all screens */
+.browsebytype-slider .slider-btn {
+  display: none !important;
+}
+
+/* Mobile slider styles (≤575.98px) */
+@media (max-width: 575.98px) {
+  .browsebytype-slider {
+    padding-inline: 0;
+    overflow: hidden;
+    padding-bottom: 24px; /* Space for dots */
+  }
+
+  /* Convert row to slider track */
+  .browsebytype-track {
+    display: grid !important;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 12px) / 2); /* 2 cards per viewport: (100% - gap) / 2 */
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 8px;
+    margin: 0 !important;
+    --bs-gutter-x: 0 !important;
+    --bs-gutter-y: 0 !important;
+  }
+
+  /* Hide scrollbar */
+  .browsebytype-track::-webkit-scrollbar {
+    display: none;
+  }
+  .browsebytype-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  /* Make cards snap and fill their grid cell */
+  .browsebytype-track > .col-6 {
+    flex: 0 0 auto;
+    width: 100% !important;
+    max-width: 100% !important;
+    scroll-snap-align: start;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Ensure type-card fills its container */
+  .browsebytype-track .type-card {
+    width: 100% !important;
+    height: auto;
+    min-height: 200px;
+    margin: 0 !important;
+  }
+
+  /* Navigation dots */
+  .browsebytype-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 0 16px;
+  }
+
+  .browsebytype-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d4d4d4;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    padding: 0;
+  }
+
+  .browsebytype-dots .dot.active {
+    background-color: var(--primary-dark, #4e342e);
+    transform: scale(1.2);
+  }
+
+  .browsebytype-dots .dot:hover {
+    background-color: #a0a0a0;
+  }
+
+  .browsebytype-dots .dot.active:hover {
+    background-color: var(--primary-dark, #4e342e);
+  }
+}
+
+/* Hide dots on desktop */
+@media (min-width: 576px) {
+  .browsebytype-dots {
+    display: none !important;
+  }
+}
+
 /* popular evs section */
 @media (max-width: 991.98px){
   
@@ -4420,6 +4518,102 @@ padding: 12px 8px;
   .brands-section .row > [class*="col-"]:nth-child(n+15){ display:none; }
 }
 
+/* ===== Popular Brands Slider for Mobile ===== */
+/* Hide slider buttons on all screens */
+.popularbrands-slider .slider-btn {
+  display: none !important;
+}
+
+/* Mobile slider styles (≤575.98px) */
+@media (max-width: 575.98px) {
+  .popularbrands-slider {
+    padding-inline: 0;
+    overflow: hidden;
+    padding-bottom: 24px; /* Space for dots */
+  }
+
+  /* Convert row to slider track */
+  .popularbrands-track {
+    display: grid !important;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 16px) / 3); /* 3 cards per viewport: (100% - 2*gap) / 3 */
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 8px;
+    margin: 0 !important;
+    --bs-gutter-x: 0 !important;
+    --bs-gutter-y: 0 !important;
+  }
+
+  /* Hide scrollbar */
+  .popularbrands-track::-webkit-scrollbar {
+    display: none;
+  }
+  .popularbrands-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  /* Make cards snap and fill their grid cell */
+  .popularbrands-track > [class*="col-"] {
+    flex: 0 0 auto;
+    width: 100% !important;
+    max-width: 100% !important;
+    scroll-snap-align: start;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Ensure brand-card fills its container */
+  .popularbrands-track .brand-card {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Navigation dots */
+  .popularbrands-dots {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 0 16px;
+    min-height: 24px; /* Ensure space is reserved */
+  }
+
+  .popularbrands-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d4d4d4;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    padding: 0;
+  }
+
+  .popularbrands-dots .dot.active {
+    background-color: var(--primary-dark, #4e342e);
+    transform: scale(1.2);
+  }
+
+  .popularbrands-dots .dot:hover {
+    background-color: #a0a0a0;
+  }
+
+  .popularbrands-dots .dot.active:hover {
+    background-color: var(--primary-dark, #4e342e);
+  }
+}
+
+/* Hide dots on desktop */
+@media (min-width: 576px) {
+  .popularbrands-dots {
+    display: none !important;
+  }
+}
 
 /* Ask our Ai Expert Section */
 .ai-expert-section {
@@ -4738,6 +4932,11 @@ color: var(--neutral-dark);
   margin-right:117px;
 }
 @media (max-width: 991.98px){
+  /* Add padding-bottom to footer to account for sticky mobile tabbar (64px height) */
+  .footer-motokhabar {
+    padding-bottom: calc(1.5rem + 64px + 16px) !important; /* Original pb-4 (1.5rem) + tabbar height (64px) + extra spacing (16px) */
+  }
+  
   /* neutralize big offsets on small screens */
   .footer-container .row{ margin-left:22px !important; margin-right:0 !important; }
   .footer-hr{ margin-left:22px !important; margin-right:22px !important; }
