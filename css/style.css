@@ -89,6 +89,22 @@ main.page > .container{
   max-width: 1440px;
 }
 
+/* Prevent Bootstrap offcanvas scrollbar-compensation from shifting header content */
+header.site-header.sticky-top{
+  padding-right: 0 !important;
+}
+
+/* On mobile, Bootstrap offcanvas can still inject body padding-right (even when there's no real scrollbar),
+   which makes the header content shift slightly. Force it off only on mobile. */
+@media (max-width: 991.98px){
+  body{
+    padding-right: 0 !important;
+  }
+  header.site-header.sticky-top{
+    padding-right: 0 !important;
+  }
+}
+
 /* ---------- TOP NAV ---------- */
 .header-top {
   background: var(--neutral-light);
@@ -179,9 +195,28 @@ margin: 0 auto;
 }
 .header-subnav {
   gap: 31px;
+  align-items: center;
 }
 .header-subnav .nav-link:hover {
   color: var(--primary-color);
+}
+/* Vertically center the Play Quiz button in bottom nav */
+.header-subnav .nav-item {
+  display: flex;
+  align-items: center;
+}
+/* Play Quiz button in bottom nav - use primary color */
+.header-subnav .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-on-primary, #ffffff);
+  padding: 8px 20px !important;
+}
+.header-subnav .btn-primary:hover,
+.header-subnav .btn-primary:focus {
+  background-color: var(--primary-light);
+  border-color: var(--primary-light);
+  color: var(--text-on-primary, #ffffff);
 }
 
 /* Optional: subtle shadow under whole header */
@@ -391,29 +426,46 @@ header, .navbar, .header-container { max-width: 100%; }
   
   
 
-  /* Make the mobile menu drop like a small panel aligned to the right */
-   #mobileMenu.collapse{
-    position:absolute; right:8px; top:100%;
-    width:220px; background:#fff;
-    border-radius:10px; box-shadow:0 10px 24px rgba(0,0,0,0.12);
-    padding:6px 8px; z-index:1000;
+  /* Offcanvas mobile menu styling */
+  #mobileMenuOffcanvas.offcanvas {
+    width: 280px !important;
+    max-width: 85vw !important;
   }
-  #mobileMenu.show{ display:block; }
 
+  #mobileMenuOffcanvas .offcanvas-header {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 16px 20px;
+  }
 
-  /* Tidy item spacing */
+  #mobileMenuOffcanvas .offcanvas-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-dark);
+  }
+
+  #mobileMenuOffcanvas .offcanvas-body {
+    padding: 0;
+  }
+
+  /* Tidy item spacing for mobile menu */
   .mobile-menu-list .nav-link {
-    margin-left: 16px;
-    border-radius: 8px;
+    padding: 12px 20px;
+    border-radius: 0;
     color: #212121;
     font-weight: 500;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+  }
 
-    font-size: 12px;
+  .mobile-menu-list .nav-link:hover {
+    background-color: #f5f5f5;
+    color: var(--primary-color);
   }
-.mobile-menu-list .nav-item {
-    border-bottom: 1px solid #e5e5e5; /* light gray line */
-   
+
+  .mobile-menu-list .nav-item {
+    border-bottom: 1px solid #e5e5e5;
   }
+
   .mobile-menu-list .nav-item:last-child {
     border-bottom: none;
   }
@@ -445,25 +497,7 @@ header, .navbar, .header-container { max-width: 100%; }
     white-space: nowrap;
     flex-shrink: 0;
   }
-#mobileMenu,
-  #mobileMenu.collapse,
-  #mobileMenu.collapsing,
-  #mobileMenu.collapse.show {
-    position: fixed !important;
-    top: var(--menu-top, 83px) !important;  /* under your top header */
-    right: 8px !important;
-    left: auto !important;                  /* prevents left snap */
-    width: 220px !important;
-    max-width: calc(100vw - 16px) !important;
-    margin: 0 !important;
-    background: #fff !important;
-    border-radius: 10px !important;
-    box-shadow: 0 10px 24px rgba(0,0,0,.12) !important;
-    padding: 6px 8px !important;
-    z-index: 1100 !important;
-    transition: none !important;
-    transform: translate3d(0,0,0);         /* isolate to compositor */
-  }
+/* Remove old collapse menu styles - now using offcanvas */
   .navbar-toggler:focus,
 .navbar-toggler:active {
   outline: none !important;
@@ -482,9 +516,10 @@ header, .navbar, .header-container { max-width: 100%; }
   /* Hide mobile tabbar; show desktop bottom nav */
   .mobile-tabbar{ display:none !important; }
   .header-bottom{ display:block !important; }
-    #mobileMenu {
-    display: none !important;
-  }
+  /* Ensure ALL mobile-only navigation stays hidden on desktop */
+  #mobileMenuOffcanvas{ display:none !important; }
+  #mobileMenu{ display:none !important; } /* legacy collapse menu (some pages may still have it) */
+  .nav-hamburger{ display:none !important; }
  
 }
 /* =========================
@@ -772,19 +807,27 @@ font-size: 13px;
     border-radius: 7px;
   }
   
+  /* Ensure all four form fields have same dimensions on mobile */
   .filter-pill.form-select {
-    height: 40px;
+    height: 40px !important;
     width: 100% !important;
     font-size: 12px;
     padding: 0 12px;
     padding-right: 35px;
     border-radius: 6px;
+    box-sizing: border-box;
   }
   
   .btn-search {
-    height: 40px;
+    height: 40px !important;
     font-size: 12px;
     border-radius: 6px;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure select-wrapper containers are consistent */
+  #hero-finder-form .finder-bar .select-wrapper {
     width: 100% !important;
   }
   
@@ -809,7 +852,7 @@ font-size: 13px;
   }
   #hero-finder-form .finder-bar .btn-search {
     grid-column: 2;
-    width: 100%;
+    width: 100% !important;
   }
 }
 
@@ -1099,11 +1142,13 @@ font-size: 13px;
   /* remove vertical separators on mobile */
   #hero-finder-form .finder-bar > *:not(:last-child)::after{ content:none !important; }
 
-  /* bring back rounded, bordered fields/buttons */
+  /* bring back rounded, bordered fields/buttons - ensure all four fields have same dimensions */
   #hero-finder-form .filter-pill.form-select{
     border: 1px solid #efefef !important;
     border-radius: 6px !important;
     box-shadow: 0 8px 18px -10px rgba(0,0,0,0.25) !important;
+    height: 40px !important;
+    width: 100% !important;
   }
   #hero-finder-form .btn-search{
     border: 1px solid #4E342E !important;
@@ -1111,9 +1156,14 @@ font-size: 13px;
     background: #ffff !important;
     color: #4E342E !important;
     box-shadow: 0 8px 18px -10px rgba(0,0,0,0.25) !important;
-    width: 120px !important;
-    min-width: 120px !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 40px !important;
     transition: all 0.3s ease !important;
+  }
+  /* Ensure all select wrappers have consistent sizing on mobile */
+  #hero-finder-form .finder-bar .select-wrapper {
+    width: 100% !important;
   }
 
   #hero-finder-form .btn-search:hover{
@@ -1733,9 +1783,21 @@ font-size: 13px;
 /* Only the tabbed slider inside rankings-block should toggle visibility */
 .rankings-block .slider-shell .cards-track[data-cat] {
   display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
 }
 .rankings-block .slider-shell .cards-track.is-active {
   display: grid;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+/* Fade effect for cards tracks - use opacity for smooth transition */
+.rankings-block .slider-shell .cards-track[data-cat]:not(.is-active) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* Leave all other sliders alone (single tracks without data-cat stay visible) */

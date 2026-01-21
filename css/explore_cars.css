@@ -308,10 +308,18 @@ aside.col-lg-3 {
   .body-parts > aside {
     display: none;
   }
+
+  /* Bootstrap `.row` uses negative margins based on --bs-gutter-x.
+     On mobile we want real side margins, so kill the row gutters. */
+  .body-parts{
+    --bs-gutter-x: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
   
   .right-parts .text-muted {
     font-size: 12px !important;
-    margin-left: 19px;
+    margin-left: 0 !important;
   }
   
   /* hide desktop filter selects + Clear button */
@@ -321,13 +329,20 @@ aside.col-lg-3 {
   }
   
   .right-parts {
+    /* Keep equal LEFT/RIGHT MARGINS on mobile (as requested) */
     margin-left: 19px !important;
+    margin-right: 19px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    /* Ensure margins don't cause horizontal overflow */
+    width: calc(100% - 38px) !important;
   }
   
   .mobile-filterbar {
     display: flex;
     gap: 14px;
-    margin: 11px 19px 10px;
+    /* align with right-parts margins */
+    margin: 11px 10px 10px;
   }
   
   .mobile-filterbar .chip {
@@ -352,11 +367,16 @@ aside.col-lg-3 {
   
   .cards-grid {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: clamp(12px, 3vw, 18px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* reduce middle gap so cards have nicer left/right breathing room */
+    column-gap: clamp(10px, 2.5vw, 14px);
     row-gap: 20px;
-    margin-left: 10px !important;
-    margin-right: 19px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    /* cards-grid is also a Bootstrap `.row` in HTML — kill its negative margins */
+    --bs-gutter-x: 0 !important;
+    --bs-gutter-y: 0 !important;
+    width: 100%;
   }
   
   /* Remove Bootstrap's column padding so only grid gaps apply */
@@ -371,12 +391,9 @@ aside.col-lg-3 {
     margin: 0 auto;
   }
 
-  /* Add a small extra right margin to left-column cards only */
-  .cards-grid > [class*="col-"]:nth-child(2n+1) .car-card.v2{
-    margin-right: clamp(6px, 2vw, 10px);
-  }
-  .cards-grid > [class*="col-"]:nth-child(2n) .car-card.v2{
-    margin-right: 0;
+  /* Remove extra margins on cards for equal spacing */
+  .cards-grid > [class*="col-"] .car-card.v2 {
+    margin-right: 0 !important;
   }
   
   .cards-grid .car-card__media img {

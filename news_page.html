@@ -164,8 +164,8 @@
 </li>
 <li class="nav-item d-lg-none nav-hamburger ms-2">
   <button class="navbar-toggler p-1" type="button"
-          data-bs-toggle="collapse" data-bs-target="#mobileMenu"
-          aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+          data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas"
+          aria-controls="mobileMenuOffcanvas" aria-label="Toggle navigation">
      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
         <path d="M3.333 5H16.667M3.333 10H16.667M3.333 15H16.667"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -173,47 +173,7 @@
   </button>
 </li>
             </ul>
-                   <!-- MOBILE-ONLY MENU (Compare + Contact) -->
-<div class="collapse navbar-collapse d-lg-none" id="mobileMenu">
-  <ul class="navbar-nav ms-auto py-2 mobile-menu-list">
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="explore_cars.html">
-        New Cars
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="explore_cars.html">
-        Used Cars
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="expert_car_reviews_listing.html">
-        Expert Review
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="news_and_blogs_listing.html">
-        News &amp; Blogs
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="contact.html">
-        Contact
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="compare.html">
-        Compare
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="#">
-        Sell My Car
-      </a>
-    </li>
-  </ul>
 </div>
-          </div>
         </div>
       </nav>
 
@@ -239,12 +199,61 @@
               <li class="nav-item">
                 <a class="nav-link" href="news_and_blogs_listing.html">News &amp; Blogs</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="quiz_no_1.html">Play Quiz</a>
+              </li>
               <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item ms-2">
+                <a
+                  class="btn btn-primary btn-sm d-flex align-items-center"
+                  href="quiz_no_1.html"
+                  style="white-space: nowrap"
+                >
+                  Play Quiz
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="mobileMenuOffcanvasLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+                <ul class="navbar-nav mobile-menu-list">
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="explore_cars.html">New Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="explore_cars.html">Used Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="expert_car_reviews_listing.html">Expert Review</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="news_and_blogs_listing.html">News &amp; Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="quiz_no_1.html">Play Quiz</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="compare.html">Compare</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="#">Sell My Car</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
 
     
 <script>
@@ -314,84 +323,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!languageButton.contains(e.target) && !languageDropdown.contains(e.target)) {
-            languageDropdown.classList.remove('show');
-        }
-    });
-    
-    // Handle language selection - FLEXIBLE IMAGE NAMING
-    languageOptions.forEach(option => {
-        option.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const selectedLang = this.dataset.lang;
-            const selectedFlag = this.dataset.flag;
-            const selectedImage = this.dataset.image; // Use exact image path provided
-            const selectedAlt = this.dataset.alt;
-            const selectedFormat = this.dataset.format || 'png'; // Default format
-            const selectedName = this.dataset.name; // Custom file name
-            
-            console.log('Language option clicked:', {
-                lang: selectedLang,
-                flag: selectedFlag,
-                image: selectedImage,
-                alt: selectedAlt,
-                format: selectedFormat,
-                name: selectedName
-            });
-            
-            // Determine image path with flexible naming
-            let imagePath;
-            if (selectedImage) {
-                // Use exact path provided in data-image
-                imagePath = selectedImage;
-            } else if (selectedName) {
-                // Use custom name with format
-                imagePath = `assets/images/${selectedName}.${selectedFormat}`;
-            } else {
-                // Fallback to standard naming
-                imagePath = `assets/images/${selectedFlag}.${selectedFormat}`;
-            }
-            
-            // Determine alt text
-            let altText;
-            if (selectedAlt) {
-                altText = selectedAlt;
-            } else {
-                altText = `${selectedFlag.charAt(0).toUpperCase() + selectedFlag.slice(1)} Flag`;
-            }
-            
-            console.log('Final image path:', imagePath);
-            
-            // Update display
-            updateFlagDisplay(selectedLang, selectedFlag, imagePath, altText);
-            
-            // Close dropdown
-            languageDropdown.classList.remove('show');
-            
-            // Check if image loads successfully
-            currentFlag.onload = function() {
-                console.log('Flag image loaded successfully:', imagePath);
-            };
-            
-            currentFlag.onerror = function() {
-                console.error('Failed to load flag image:', imagePath);
-                console.error('Please check if the image file exists at this path');
-            };
-        });
-    });
-});
-
-document.addEventListener('click', function(e){
-  const menu = document.getElementById('mobileMenu');
-  const toggler = document.querySelector('.nav-hamburger .navbar-toggler');
-  if(!menu || !toggler) return;
-
-  const isClickInside = menu.contains(e.target) || toggler.contains(e.target);
-  if(menu.classList.contains('show') && !isClickInside){
-    const collapseInstance = bootstrap.Collapse.getOrCreateInstance(menu, {toggle:false});
     collapseInstance.hide();
   }
 });
@@ -552,6 +483,46 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
     </header>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="mobileMenuOffcanvasLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav mobile-menu-list">
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="explore_cars.html">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="personal_info.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="explore_cars.html">New Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="explore_cars.html">Used Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="expert_car_reviews_listing.html">Expert Review</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="news_and_blogs_listing.html">News &amp; Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="compare.html">Compare</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="#">Sell My Car</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
 
     <section class="detail-layout">
       <!-- =============== LEFT COLUMN =============== -->

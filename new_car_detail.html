@@ -41,7 +41,7 @@
 
     <title>Car Details</title>
   </head>
-  <body>
+  <body class="page-new-car-detail">
     <header class="site-header sticky-top">
       <!-- TOP NAV -->
       <nav class="navbar navbar-expand-lg navbar-light header-top shadow-sm">
@@ -163,8 +163,8 @@
 </li>
 <li class="nav-item d-lg-none nav-hamburger ms-2">
   <button class="navbar-toggler p-1" type="button"
-          data-bs-toggle="collapse" data-bs-target="#mobileMenu"
-          aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+          data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas"
+          aria-controls="mobileMenuOffcanvas" aria-label="Toggle navigation">
      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
         <path d="M3.333 5H16.667M3.333 10H16.667M3.333 15H16.667"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -172,47 +172,7 @@
   </button>
 </li>
             </ul>
-                   <!-- MOBILE-ONLY MENU (Compare + Contact) -->
-<div class="collapse navbar-collapse d-lg-none" id="mobileMenu">
-  <ul class="navbar-nav ms-auto py-2 mobile-menu-list">
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="explore_cars.html">
-        New Cars
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="explore_cars.html">
-        Used Cars
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="expert_car_reviews_listing.html">
-        Expert Review
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="news_and_blogs_listing.html">
-        News &amp; Blogs
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="contact.html">
-        Contact
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="compare.html">
-        Compare
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="#">
-        Sell My Car
-      </a>
-    </li>
-  </ul>
 </div>
-          </div>
         </div>
       </nav>
 
@@ -239,11 +199,57 @@
                 <a class="nav-link" href="news_and_blogs_listing.html">News &amp; Blogs</a>
               </li>
               <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item ms-2">
+                <a
+                  class="btn btn-primary btn-sm d-flex align-items-center"
+                  href="quiz_no_1.html"
+                  style="white-space: nowrap"
+                >
+                  Play Quiz
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="mobileMenuOffcanvasLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+                <ul class="navbar-nav mobile-menu-list">
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="explore_cars.html">New Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="explore_cars.html">Used Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="expert_car_reviews_listing.html">Expert Review</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="news_and_blogs_listing.html">News &amp; Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="quiz_no_1.html">Play Quiz</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="compare.html">Compare</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="#">Sell My Car</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
 
     
 <script>
@@ -1149,7 +1155,7 @@ Basic Info
   aria-controls="warrantyCollapse"
 >
   <h2 class="accordion-header" id="warrantyHeading">
-    <i class="fa-solid fa-shield-check spec-icon" aria-hidden="true"></i>
+    <i class="fa-solid fa-shield-halved spec-icon" aria-hidden="true"></i>
     Warranty and Service
      <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
   </h2>
@@ -1822,9 +1828,8 @@ function onScroll() {
 <rect x="0.5" width="60" height="60" rx="30" fill="#D3F4DE"/>
 <path d="M37.25 20.25H23.75C22.9546 20.2509 22.1921 20.5672 21.6296 21.1296C21.0672 21.6921 20.7509 22.4546 20.75 23.25V36.75C20.7509 37.5454 21.0672 38.3079 21.6296 38.8704C22.1921 39.4328 22.9546 39.7491 23.75 39.75H37.25C38.0454 39.7491 38.8079 39.4328 39.3704 38.8704C39.9328 38.3079 40.2491 37.5454 40.25 36.75V23.25C40.2491 22.4546 39.9328 21.6921 39.3704 21.1296C38.8079 20.5672 38.0454 20.2509 37.25 20.25ZM35.5742 26.7323L29.2742 34.2323C29.2051 34.3147 29.1191 34.3812 29.0221 34.4273C28.925 34.4735 28.8192 34.4983 28.7117 34.5H28.6991C28.5939 34.5 28.49 34.4778 28.394 34.435C28.298 34.3922 28.212 34.3297 28.1417 34.2516L25.4417 31.2516C25.3731 31.1788 25.3198 31.0931 25.2848 30.9995C25.2499 30.9059 25.234 30.8062 25.238 30.7063C25.2421 30.6064 25.2662 30.5084 25.3087 30.4179C25.3512 30.3275 25.4114 30.2464 25.4857 30.1796C25.56 30.1127 25.6469 30.0614 25.7414 30.0286C25.8358 29.9958 25.9358 29.9822 26.0356 29.9886C26.1353 29.995 26.2328 30.0213 26.3222 30.0659C26.4117 30.1106 26.4913 30.1726 26.5564 30.2484L28.6794 32.6072L34.4258 25.7677C34.5547 25.6186 34.737 25.5263 34.9335 25.5107C35.1299 25.495 35.3246 25.5573 35.4754 25.684C35.6263 25.8107 35.7212 25.9918 35.7397 26.1879C35.7582 26.3841 35.6988 26.5797 35.5742 26.7323Z" fill="#1D6D00"/>
 </svg>
-
           </div>
-          <div class="kpi-value">92%</div>
+          <div class="kpi-value kpi-value--below">92%</div>
           <div class="kpi-label">Would Recommend</div>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
@@ -1834,9 +1839,8 @@ function onScroll() {
 <path d="M4.67733 1.5C4.25943 1.49992 3.84977 1.61622 3.49426 1.83587C3.13875 2.05552 2.85143 2.36984 2.66451 2.74359L1.21139 5.64984C1.06939 5.93563 0.989466 6.24823 0.976863 6.5671C0.96426 6.88597 1.01926 7.2039 1.13826 7.5H14.1789C14.2106 7.50003 14.2419 7.49201 14.2697 7.47668C14.2974 7.46135 14.3209 7.43921 14.3378 7.41234L17.8769 1.78734C17.8947 1.75903 17.9046 1.72646 17.9056 1.69302C17.9066 1.65958 17.8986 1.62649 17.8825 1.59717C17.8663 1.56785 17.8427 1.54338 17.8139 1.5263C17.7852 1.50921 17.7523 1.50013 17.7189 1.5H4.67733Z" fill="#0C06BB"/>
 <path d="M22.7892 5.65145L21.3361 2.7452C21.1863 2.44331 20.9703 2.17916 20.7042 1.9725C20.438 1.76584 20.1286 1.62201 19.799 1.55176L16.0546 7.5002L13.9687 10.8321C12.6936 10.3891 11.3063 10.3891 10.0312 10.8321L8.93809 9.08832C8.92124 9.06137 8.89782 9.03914 8.87002 9.02372C8.84223 9.00831 8.81097 9.00021 8.77918 9.0002H2.39715C2.36352 9.00025 2.33052 9.00935 2.30161 9.02654C2.27271 9.04374 2.24896 9.06839 2.23286 9.09791C2.21675 9.12744 2.20888 9.16075 2.21008 9.19436C2.21127 9.22797 2.22149 9.26064 2.23965 9.28895L6.11621 15.3232C5.94156 16.1938 5.96235 17.0924 6.17707 17.954C6.3918 18.8157 6.7951 19.6189 7.35789 20.3058C7.92067 20.9927 8.62891 21.5461 9.4315 21.9261C10.2341 22.3061 11.111 22.5032 11.999 22.5032C12.887 22.5032 13.764 22.3061 14.5665 21.9261C15.3691 21.5461 16.0774 20.9927 16.6402 20.3058C17.2029 19.6189 17.6063 18.8157 17.821 17.954C18.0357 17.0924 18.0565 16.1938 17.8818 15.3232L22.6696 7.8752C22.8798 7.54639 23.0013 7.16876 23.0223 6.77906C23.0432 6.38937 22.9629 6.00089 22.7892 5.65145ZM12.1954 19.4941C11.5867 19.5339 10.9803 19.3871 10.4571 19.0735C9.93392 18.7598 9.51879 18.294 9.26708 17.7384C9.01537 17.1827 8.93904 16.5635 9.04827 15.9633C9.15751 15.3631 9.44711 14.8105 9.87847 14.3792C10.3098 13.9478 10.8624 13.6582 11.4626 13.549C12.0628 13.4397 12.682 13.5161 13.2376 13.7678C13.7933 14.0195 14.2591 14.4346 14.5728 14.9578C14.8864 15.481 15.0332 16.0874 14.9934 16.6961C14.9452 17.4223 14.6349 18.1062 14.1204 18.6208C13.6059 19.1354 12.922 19.4457 12.1959 19.4941H12.1954Z" fill="#0C06BB"/>
 </svg>
-
           </div>
-          <div class="kpi-value">4.7</div>
+          <div class="kpi-value kpi-value--below">4.7</div>
           <div class="kpi-label">Reliability Score</div>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
@@ -1847,10 +1851,8 @@ function onScroll() {
 <path d="M5.16795 9.14062C3.9308 9.14062 2.84306 7.99031 2.74217 6.57668C2.69224 5.85246 2.91795 5.18273 3.37498 4.6916C3.82709 4.20539 4.46482 3.9375 5.16795 3.9375C5.87107 3.9375 6.50388 4.2068 6.95846 4.69582C7.419 5.19082 7.644 5.85914 7.59127 6.57738C7.49037 7.99066 6.40299 9.14062 5.16795 9.14062Z" fill="#782ABE"/>
 <path d="M7.47629 10.2465C6.85789 9.94414 6.05527 9.79297 5.16828 9.79297C4.13258 9.79297 3.12676 10.063 2.33574 10.553C1.43891 11.1096 0.835624 11.9199 0.591991 12.8983C0.556338 13.0391 0.552965 13.186 0.582127 13.3282C0.611288 13.4705 0.672229 13.6042 0.76039 13.7196C0.844043 13.827 0.951212 13.9137 1.07366 13.9732C1.1961 14.0327 1.33055 14.0633 1.46668 14.0627H5.36902C5.43489 14.0627 5.49866 14.0396 5.54922 13.9974C5.59978 13.9552 5.63393 13.8965 5.6457 13.8317C5.64957 13.8096 5.65449 13.7874 5.66012 13.7656C5.95824 12.5682 6.6568 11.5564 7.68898 10.8188C7.72695 10.7915 7.75748 10.7551 7.77782 10.7129C7.79816 10.6708 7.80766 10.6242 7.80546 10.5775C7.80326 10.5307 7.78943 10.4853 7.76523 10.4452C7.74102 10.4051 7.7072 10.3718 7.66683 10.3481C7.61164 10.3157 7.54836 10.2816 7.47629 10.2465Z" fill="#782ABE"/>
 </svg>
-
-
           </div>
-          <div class="kpi-value">89%</div>
+          <div class="kpi-value kpi-value--below">89%</div>
           <div class="kpi-label">Owner Satisfaction</div>
         </div>
       </div>

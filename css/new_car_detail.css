@@ -18,6 +18,18 @@
   --mi-icon: #7b61ff; /* purple calendar */
 }
 
+/* Consistent left/right page gutters for all sections (new car detail page only) */
+.page-new-car-detail main.page{
+  padding-left: clamp(16px, 4vw, 28px);
+  padding-right: clamp(16px, 4vw, 28px);
+}
+
+/* Prevent double-padding: containers keep max-width behavior, but gutters come from main.page */
+.page-new-car-detail main.page .container{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .herosec{
   display: block;
   overflow: visible;
@@ -217,6 +229,36 @@ margin-right: 36px;
   position: relative; /* ensure a positioning context */
 }
 
+/* =========================
+   Prevent mobile overflow
+   ========================= */
+@media (max-width: 991.98px) {
+  /* The following were desktop dimensions but were applied globally,
+     causing horizontal overflow on phones/tablets. */
+  .hero-left{
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hero-right{
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+  }
+
+  #heroCarCarousel{
+    margin-right: 0 !important;
+  }
+
+  /* Clip any stray pixels (arrows, shadows) so the page doesn't slide sideways */
+  .car-hero,
+  .car-hero .hero-carousel-wrapper,
+  #heroCarCarousel{
+    overflow: hidden !important;
+  }
+}
+
 .hero-carousel-wrapper {
  /* fixed width for the carousel */
   margin: 0 auto; /* pushes it to the right */
@@ -280,6 +322,16 @@ margin-right: 36px;
   left: auto;
 }
 
+/* Tablets + mobile: keep carousel controls inside viewport to avoid horizontal overflow */
+@media (max-width: 991.98px) {
+  .car-hero .carousel-control-prev {
+    left: 6px;
+  }
+  .car-hero .carousel-control-next {
+    right: 6px;
+  }
+}
+
 .car-hero .carousel-control-prev i,
 .car-hero .carousel-control-next i {
   font-size: 1.2rem;
@@ -292,7 +344,8 @@ margin-right: 36px;
   .car-hero .row {
     display: flex;
     flex-direction: column;
-    width: 363px;
+    width: 100%;
+    max-width: 100%;
   
   }
 
@@ -361,12 +414,12 @@ margin-right: 36px;
 }
 
   .car-hero .carousel-control-prev {
-    left: -15px; /* position outside carousel on mobile */
+    left: 6px; /* keep inside viewport to avoid horizontal overflow */
     right: auto;
   }
 
   .car-hero .carousel-control-next {
-    right: -15px !important; /* position outside carousel on mobile */
+    right: 6px !important; /* keep inside viewport to avoid horizontal overflow */
     left: auto;
     z-index: 1000;
   }
@@ -408,6 +461,31 @@ margin-right: 36px;
   
 }
 
+/* Mobile: prevent right-side cards from forcing horizontal scroll */
+@media (max-width: 575.98px) {
+  .mk-sidecard{
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* Mobile + tablet: fixed desktop widths can overflow on iPad / small screens */
+@media (max-width: 991.98px) {
+  #ratings-reviews .overall-rating,
+  #ratings-reviews .individual-review{
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .mk-sidecard{
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+
 /* navigation below  section  */
 .specs-nav {
   display: flex;
@@ -422,9 +500,15 @@ margin-right: 36px;
   font-weight: 500;
   color: #212121;
   font-size: 14px;
-  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 20px;
   text-decoration: none;
   border-right: 1px solid #d4d4d4;
+  border-radius: 6px;
+  transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
+  will-change: transform;
 }
 
 .specs-nav a:last-child {
@@ -434,6 +518,11 @@ margin-right: 36px;
 .specs-nav a:hover {
   color: #000;
   transform: translateY(-2px);
+}
+
+.specs-nav a:focus-visible {
+  outline: 2px solid rgba(78, 52, 46, 0.35);
+  outline-offset: 2px;
 }
 
 /* Technical specification and right part */
@@ -490,6 +579,7 @@ margin-right: 36px;
   font-size: 18px;
   color: var(--primary-dark);
 }
+
 .accordion-button::after {
   display: none !important;
 }
@@ -501,7 +591,7 @@ margin-right: 36px;
 }
 
 .dropdown-arrow {
-  font-size: 18px;
+  font-size: 16px;
   transition: transform 0.2s ease;
   margin-left: auto;
 }
@@ -592,7 +682,6 @@ margin-right: 36px;
   inset: 0;
   background: rgba(0,0,0,0.6);
   z-index: 9999;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -1075,13 +1164,41 @@ margin-right: 36px;
 }
 
 /* KPI chips */
-.kpi-dot {
+#owner-satisfaction .kpi-dot {
   width: 60px;
   height: 60px;
   margin: 0 auto 10px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px; /* keep the score just below the icon */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icon size inside KPI chip */
+#owner-satisfaction .kpi-dot svg{
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+/* Slightly larger icon for "Would Recommend" */
+#owner-satisfaction .kpi-dot.bg-green-100 svg{
+  width: 40px;
+  height: 40px;
+}
+
+/* Place the score just below the icon (centered with respect to icon) */
+#owner-satisfaction .kpi-value--below{
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #212121;
+  line-height: 1;
+  text-align: center;
 }
 
 .bg-green-100 {
@@ -1544,6 +1661,20 @@ html {
 /* Viewport offset for browsers that honor it */
 html {
   scroll-padding-top: var(--anchor-offset);
+}
+
+/* Final guardrail: if any component misbehaves, do not allow horizontal page scroll on mobile */
+@media (max-width: 991.98px) {
+  html, body{
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  main.page{
+    overflow-x: clip;
+  }
+  img, svg, video, canvas{
+    max-width: 100%;
+  }
 }
 
 /* Extra-safe: each target section keeps space above when linked */

@@ -164,8 +164,8 @@
 </li>
 <li class="nav-item d-lg-none nav-hamburger ms-2">
   <button class="navbar-toggler p-1" type="button"
-          data-bs-toggle="collapse" data-bs-target="#mobileMenu"
-          aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+          data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas"
+          aria-controls="mobileMenuOffcanvas" aria-label="Toggle navigation">
      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
         <path d="M3.333 5H16.667M3.333 10H16.667M3.333 15H16.667"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -173,47 +173,7 @@
   </button>
 </li>
             </ul>
-                   <!-- MOBILE-ONLY MENU (Compare + Contact) -->
-<div class="collapse navbar-collapse d-lg-none" id="mobileMenu">
-  <ul class="navbar-nav ms-auto py-2 mobile-menu-list">
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="explore_cars.html">
-        New Cars
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="explore_cars.html">
-        Used Cars
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="expert_car_reviews_listing.html">
-        Expert Review
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="news_and_blogs_listing.html">
-        News &amp; Blogs
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="contact.html">
-        Contact
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="compare.html">
-        Compare
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link d-flex align-items-center" href="#">
-        Sell My Car
-      </a>
-    </li>
-  </ul>
 </div>
-          </div>
         </div>
       </nav>
 
@@ -239,12 +199,61 @@
               <li class="nav-item">
                 <a class="nav-link" href="news_and_blogs_listing.html">News &amp; Blogs</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="quiz_no_1.html">Play Quiz</a>
+              </li>
               <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item ms-2">
+                <a
+                  class="btn btn-primary btn-sm d-flex align-items-center"
+                  href="quiz_no_1.html"
+                  style="white-space: nowrap"
+                >
+                  Play Quiz
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="mobileMenuOffcanvasLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+                <ul class="navbar-nav mobile-menu-list">
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="explore_cars.html">New Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="explore_cars.html">Used Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="expert_car_reviews_listing.html">Expert Review</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="news_and_blogs_listing.html">News &amp; Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="quiz_no_1.html">Play Quiz</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="compare.html">Compare</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="#">Sell My Car</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
 
     
 <script>
