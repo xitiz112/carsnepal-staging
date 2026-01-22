@@ -15,21 +15,101 @@
   --bs-body-font-family: "Poppins", sans-serif;
 }
 
+/* Consistent left/right margins for ALL sections (used car detail page only) */
+.page-used-car-detail .toppart,
+.page-used-car-detail main.page{
+  padding-left: clamp(16px, 4vw, 28px);
+  padding-right: clamp(16px, 4vw, 28px);
+}
+
+/* Prevent double padding: sections use Bootstrap .container, but gutters come from .toppart/main.page */
+.page-used-car-detail .toppart > .container,
+.page-used-car-detail main.page > .container,
+.page-used-car-detail main.page .container{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 /* hero section  */
 /* Title + links */
   .car-title{ font-weight:700; font-size:clamp(20px,3.2vw,38px); letter-spacing:0; }
   .link-review{ color:var(--primary-light); font-size:clamp(13px,3.2vw,14px);text-decoration:none; font-weight:500; }
   .link-review:hover{ text-decoration:underline; }
+
+/* Ratings & Reviews: read more */
+.page-used-car-detail #ratings-reviews #reviewsTrack{
+  height: auto !important;
+}
+.page-used-car-detail #ratings-reviews .individual-review{
+  height: auto !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+/* Space between left (overall rating) and right (reviews) columns */
+.page-used-car-detail #ratings-reviews .main-review{
+  --bs-gutter-x: 100px;
+}
+@media (max-width: 575.98px){
+  .page-used-car-detail #ratings-reviews .main-review{
+    --bs-gutter-x: 14px;
+  }
+}
+.mk-card-review{
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 16px;
+}
+.individual-review{
+  display: flex;
+  flex-direction: column;
+}
+.individual-review .review-author{
+  margin-top: auto;
+  padding-top: 8px;
+}
+.individual-review .review-text{
+  --review-lines: 2;
+  --review-lh: 1.45;
+  line-height: var(--review-lh);
+  overflow: hidden;
+  max-height: calc(var(--review-lines) * 1em * var(--review-lh));
+  transition: max-height 220ms ease, opacity 220ms ease;
+  will-change: max-height;
+  opacity: 0.98;
+}
+.individual-review .review-text.is-expanded{
+  max-height: 500px; /* big enough for typical review text */
+  opacity: 1;
+}
+.review-readmore{
+  display: inline-block;
+  margin-bottom: 12px;
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--primary-light);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.review-readmore:hover{
+  text-decoration: none;
+  color: var(--primary-color);
+}
 .rating .rate,.rev{font-size: clamp(13px,3.2vw,14px) !important;font-weight: 500;}
   /* Pills */
   .pill{
     display:inline-flex; align-items:center;;
+    gap: 8px; /* more space between icon and text */
     border-radius:28px;
     background: #E2C2BB;
  border:1px solid #e8e8e8; color:var(--primary-light);
     font-size:clamp(9px,3.2vw,13px); font-weight:400;
     width: auto;
-    padding: 5px;
+    padding: 5px 10px;
   }
 
   /* Layout: main + thumbs */
@@ -99,22 +179,21 @@
 }
 
 .d-flex.flex-wrap.gap-2.mt-3 {
-  display: grid !important;
-  grid-auto-flow: column;       /* keep them in a row */
-  grid-auto-columns: max-content;
-  gap: 9px;
-             /* allow horizontal scroll if too many */
-  white-space: nowrap;
+  /* Responsive pills on mobile: wrap to next line instead of overflowing */
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px;
+  white-space: normal;
 }
 
 .d-flex.flex-wrap.gap-2.mt-3 .pill {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px; /* keep consistent icon/text spacing on mobile too */
   padding: 4px 8px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   white-space: nowrap;
 }
 
@@ -215,6 +294,109 @@
   margin-bottom: 15px;
   color: #757575;
 }
+
+/* About Seller (match provided layout) */
+.seller-about{
+  display: block;
+}
+.seller-address__title{
+  font-size: 14px;
+  font-weight: 500;
+  color: #757575;
+  margin-bottom: 8px;
+}
+.seller-address__line{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-light);
+  font-size: 14px;
+  font-weight: 500;
+}
+.seller-doc-actions{
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.seller-doc-actions__view{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--primary-light);
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.seller-doc-actions__download{
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--primary-light);
+  color: #fff;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+.seller-doc-actions__view:hover,
+.seller-doc-actions__download:hover{
+  color: #fff;
+  filter: brightness(0.96);
+}
+
+.seller-contact-card{
+  background: #f4f4f4;
+  border-radius: 10px;
+  padding: 14px 14px;
+  border-left: 4px solid var(--primary-light);
+}
+.seller-contact-row{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #212121;
+  font-size: 14px;
+}
+
+.seller-contact-row--numbers{
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.seller-contact-item{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.seller-contact-row + .seller-contact-row{
+  margin-top: 8px;
+}
+.seller-contact-row i{
+  color: var(--primary-light);
+}
+
+/* Brand colors for contact icons (scoped to contact card only) */
+.seller-contact-card .bi-telephone-fill{
+  color: var(--primary-light);
+}
+.seller-contact-card .bi-whatsapp{
+  color: #25D366;
+}
+.seller-contact-card .fa-viber{
+  color: #7360F2;
+}
+
+/* Brand icon sizing (Font Awesome Viber) */
+.seller-contact-row .fa-brands{
+  font-size: 16px;
+}
+
 .seller-info {
   display: flex;
   align-items: center;

@@ -64,7 +64,7 @@
        margin-bottom: 92px;
     }
     .specs h3{font-size:16px !important;font-weight:600;}
-    .kv{display:grid;grid-template-columns:max-content 1fr;gap:10px 14px;font-size:14px;font-weight:400;}
+    .kv{display:grid;grid-template-columns:max-content 1fr;gap:10px 14px;font-size:14px;font-weight:400; margin-top: 15px;}
     
     .kv .k{color:var(--neutral-dark)}
     .kv .v{color: #212121;}
@@ -95,15 +95,25 @@
       font-size:20px !important;margin:0 0 8px;color:#212121;font-weight: 600;
     }
     .section p{
-      margin:0 0 12px;color:#3c3c3c;font-size:14px !important;color: var(--neutral-dark);
+      margin:0 0 12px;color:#3c3c3c;font-size:14px !important;color: var(--neutral-dark);line-height: 1.8;
     }
 
     /* ---------- Pros & Cons ---------- */
     .cols-2{display:grid;gap:16px; }
     .cols-2 .whatwelike, .areaforimp{background-color: #f4f4f4;box-shadow: 0px 2px 4px 0px #00000040;}
      .cols-2 h3{font-size: 17px !important; font-weight: 600;}
-    .whatwelike h3{color: #1D6D00;}
-    .areaforimp h3{color: #c72500;}
+    .whatwelike h3{color: #1D6D00;margin-bottom: 10px;}
+    .areaforimp h3{color: #c72500;margin-bottom: 10px;}
+    /* spacing between list items (both lists) */
+    .whatwelike ul,
+    .areaforimp ul{
+      padding-left: 20px; /* keep consistent bullet indent */
+      margin: 0;
+    }
+    .whatwelike li + li,
+    .areaforimp li + li{
+      margin-top: 10px;
+    }
   .whatwelike li::marker{
         color: #1D6D00;
         font-size: 18px;
@@ -221,6 +231,19 @@
     padding-inline: 16px;      /* left & right */
   }
   .specs{margin-bottom: 0;}
+}
+
+/* Consistent left/right margins for ALL sections (expert review detail page only) */
+@media (max-width: 575.98px){
+  .page-expert-review-detail .toppart,
+  .page-expert-review-detail main.page{
+    padding-inline: 19px;
+  }
+
+  /* prevent double-padding: inner container already sits inside main.page */
+  .page-expert-review-detail .main-part{
+    padding-inline: 0 !important;
+  }
 }
 
 /* Kill the fixed/min widths that cause overflow on phones */

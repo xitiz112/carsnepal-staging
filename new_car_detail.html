@@ -37,7 +37,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/explore_cars.css" />
-    <link rel="stylesheet" href="css/new_car_detail.css" />
+    <!-- merged into css/style.css -->
 
     <title>Car Details</title>
   </head>
@@ -517,24 +517,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </nav>
     </section>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const swatches = document.querySelectorAll(".swatch");
-  const carouselEl = document.getElementById("heroCarCarousel");
-  const bsCarousel = new bootstrap.Carousel(carouselEl);
-
-  swatches.forEach(swatch => {
-    swatch.addEventListener("click", () => {
-      const index = parseInt(swatch.getAttribute("data-slide"), 10);
-      bsCarousel.to(index); // jump directly to that slide
-
-      // optional highlight active swatch
-      swatches.forEach(s => s.classList.remove("active"));
-      swatch.classList.add("active");
-    });
-  });
-});
-</script>
+<!-- removed: colour options swatch script -->
 
 
 
@@ -580,17 +563,7 @@ document.addEventListener("DOMContentLoaded", function () {
               </a>
             </div>
 
-            <!-- colours -->
-            <div class="d-flex align-items-center gap-2 flex-wrap">
-  <span class="fw-semibold me-2 color-options">Colour Options:</span>
-  <span class="swatch bg-white border" data-slide="0"></span>
-  <span class="swatch bg-secondary" data-slide="1"></span>
-  
-  <span class="swatch bg-danger" data-slide="2"></span>
-  <span class="swatch bg-warning" data-slide="3"></span>
-  <span class="swatch bg-primary" data-slide="4"></span>
-   
-</div>
+            <!-- removed: colour options -->
 
 
             <!-- rating -->
@@ -2180,6 +2153,18 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="d-flex align-items-start mb-4 footer-contact">
               <i class="bi bi-envelope me-2 mt-1"></i>
               <span>motokhabar@gmail.com</span>
+            </div>
+
+            <div class="footer-social" aria-label="Social links">
+              <a href="#" class="footer-social__link" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#" class="footer-social__link" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#" class="footer-social__link" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+              </a>
             </div>
           </div>
 

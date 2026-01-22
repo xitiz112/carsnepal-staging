@@ -1,5 +1,22 @@
 
 /* ===== Contact page ===== */
+.page-contact .toppart,
+.page-contact main.page{
+  padding-inline: clamp(16px, 4vw, 28px);
+}
+@media (max-width: 575.98px){
+  .page-contact .toppart,
+  .page-contact main.page{
+    padding-inline: 19px;
+  }
+}
+/* Prevent double padding if a container wrapper is used */
+.page-contact main.page > .container,
+.page-contact .toppart > .container{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .contact-page{
   padding: 24px 20px;
   background: #F4F4F4;

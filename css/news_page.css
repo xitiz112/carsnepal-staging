@@ -14,6 +14,18 @@
   --shadow-soft:0 4px 21px -10px rgba(0,0,0,.25);
 }
 
+/* Consistent left/right margins for ALL sections (news detail page only) */
+.page-news-detail .toppart,
+.page-news-detail main.page{
+  padding-inline: clamp(16px, 4vw, 28px);
+}
+/* Prevent double padding from nested containers */
+.page-news-detail main.page > .container,
+.page-news-detail .toppart > .container{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 /* Meta bar */
 .post-meta{
   display:flex;align-items:center;justify-content:space-between;gap:12px
@@ -89,6 +101,11 @@
 /* Ad/banner */
 .ad{display:block;overflow:hidden}
 .ad img{width:100%;border-radius:var(--card-radius)}
+
+/* Mobile: top ad spacing */
+@media (max-width: 575.98px){
+  .ad-block--mobile{ margin-bottom: 12px; }
+}
 
 /* News/review cards (sidebar) */
 .articles{display:flex;flex-direction:column;gap:16px ; width: 75%;}
@@ -196,10 +213,13 @@
   /* 11) Socials */
   .share-row{ order: 11 !important; }
 
-  /* 12) Ad (full width) — wrapper that contains .ad */
-  .right-sticky > div:has(.ad){ order: 12 !important; width:100% !important; }
-  .right-sticky > div:has(.ad) .ad{ display:block; width:100%; }
-  .right-sticky > div:has(.ad) .ad img{ width:100%; height:auto; border-radius:20px; }
+  /* 0) Ad (full width) — show at the very top on mobile */
+  .right-sticky .ad-block{ order: 0 !important; width:100% !important; }
+  .right-sticky .ad-block .ad{ display:block; width:100%; }
+  .right-sticky .ad-block .ad img{ width:100%; height:auto; border-radius:20px; }
+
+  /* After the blog content, show related heading + related blogs */
+  .related-heading{ order: 12 !important; }
 
   /* 13) Articles — 2 columns */
   .articles{

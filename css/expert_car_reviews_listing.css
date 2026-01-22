@@ -15,6 +15,41 @@
   --bs-body-font-family: "Poppins", sans-serif;
 }
 
+/* Popular Brands carousel */
+.brands-section{
+  /* ensure consistent left/right breathing room even if other utilities override */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure side margins on mobile (page has some container/gutter overrides elsewhere) */
+@media (max-width: 575.98px){
+  .brands-section.container{
+    padding-left: 19px !important;
+    padding-right: 19px !important;
+  }
+}
+.brands-carousel .carousel-indicators{
+  position: static;
+  margin: 14px 0 0;
+  justify-content: center;
+  gap: 6px;
+}
+.brands-carousel .carousel-indicators [data-bs-target]{
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background-color: #d4d4d4;
+  opacity: 1;
+  margin: 0 !important; /* override Bootstrap's horizontal margins */
+}
+.brands-carousel .carousel-indicators .active{
+  background-color: var(--primary-color);
+}
+.brands-carousel .brand-card{
+  height: 100%;
+}
+
 .btn-outline-secondary{
     background-color: var(--primary-light);
     color: #ffffff;
@@ -27,8 +62,20 @@
 .top-filter{
   margin-bottom: 19px;
 }
+
+/* Make whole review card clickable (stretched-link) without blocking inner buttons */
+.review-card{
+  position: relative;
+}
+.review-card .btn.btn-outline-choco{
+  position: relative;
+  z-index: 2;
+}
 /* Mobile: center each card and restrict width for a tidy column */
 @media (max-width: 575.98px){
+  :root{
+    --expert-card-width: 322px;
+  }
   .expert-reviews .review-card{
     max-width: 360px;   /* adjust to taste */
     margin: 0 auto;     /* centers the card */
@@ -63,30 +110,33 @@
     display: flex !important;
     flex-direction: column !important;
     gap: 21px !important;
+    align-items: center;
+    max-width: var(--expert-card-width);
+    margin-left: auto;
+    margin-right: auto;
     
    
   }
   /* Make the two selects sit side-by-side */
   .expert-reviews .top-filter .mini-filter-item{
     display: flex;
-    grid-template-columns: 1fr 1fr;
     gap: 18px !important;
-   
-     margin-left: 39px;
+    width: 100%;
+    margin-left: 0 !important;
   }
   .expert-reviews .top-filter .mini-filter{
-    width: 149px;
+    width: 100%;
     font-size: 14px;
     font-weight: 500; 
-               /* selects fill their grid cells */
+    flex: 1 1 0;
   }
   /* Search button below, full width */
   .expert-reviews .top-filter .flex-shrink-0{
     width: 100% !important;
   }
   .expert-reviews .top-filter .search-btn{
-    width: 316px;
-     margin-left: 39px;
+    width: 100%;
+    margin-left: 0 !important;
      
   }
 
@@ -99,7 +149,7 @@
     display: flex;            /* center each card within its column */
     justify-content: center;
   }
- .expert-reviews .review-card{ width: 322px !important; }
+ .expert-reviews .review-card{ width: var(--expert-card-width) !important; }
 
   .expert-reviews h3{ font-size:19px !important; }
   .expert-reviews p.rankings-sub{ font-size:14px; margin-top: 10px;}

@@ -12,6 +12,18 @@
   --brand-brown: #5d4037;
   --pill-bg: #eed7d0;
 }
+
+/* Consistent left/right margins for the News & Blogs listing page */
+.page-news-listing .toppart,
+.page-news-listing main.page{
+  padding-inline: clamp(16px, 4vw, 28px);
+}
+/* Prevent double padding from nested containers */
+.page-news-listing main.page > .container,
+.page-news-listing .toppart > .container{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 h2{
   font-size: 27px;
 }
@@ -29,12 +41,13 @@ h2{
 .author-meta .name{ font-weight:500; color:var(--brand-brown); font-size:12px; }
 .author-meta .date{ display:block; color:#6b7280; font-size:10px; margin-top:2px; font-weight:500; }
 
-/* Brand arrow button (reusable) */
-button.brand-arrow{
+/* Brand arrow (button or link) */
+.brand-arrow{
   border:0; background:transparent; padding:0; box-shadow:none; outline:none;
   appearance:none; -webkit-appearance:none; line-height:0; cursor:pointer;
+  text-decoration: none;
 }
-button.brand-arrow svg{ display:block; width:17px; height:17px; }
+.brand-arrow svg{ display:block; width:17px; height:17px; }
 
 /* Blog media overlay (reusable) */
 .blog-media{ position:relative; overflow:hidden; }
@@ -132,22 +145,24 @@ button.brand-arrow svg{ display:block; width:17px; height:17px; }
 .right-panel .blog-item .card-body > h6,
 .right-panel .blog-item .card-body > p{ grid-column:1 / -1; margin-bottom:4px; }
 .right-panel .blog-item h6{
-  color:var(--text-dark); font-size:15px; line-height:100%; font-weight:600;
+  color:var(--text-dark); font-size:15px; line-height:1.4; font-weight:600;
   margin:6px 0 8px;
-  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
 }
 .right-panel .blog-item p{
   color:var(--text-muted); font-size:13px !important; font-weight:400; line-height:100%;
   margin:0 0 10px;
-  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
 }
 /* Read-time left, arrow right */
 .right-panel .blog-item .small.text-muted{
   grid-column:1; align-self:center; display:flex; align-items:center; gap:6px;
-  color:var(--text-muted) !important; font-size:10px;
+  color:var(--text-muted) !important; font-size:10px;line-height:1.4;
 }
 .right-panel .blog-item .brand-arrow{
   grid-column:2; justify-self:end; align-self:center;
+  position: relative;
+  z-index: 2; /* keep above stretched-link overlay */
 }
 @media (min-width:992px){
   .right-panel .rp-dots{
@@ -282,6 +297,31 @@ button.brand-arrow svg{ display:block; width:17px; height:17px; }
     font-weight:600; font-size:14px; line-height:1; color:#333;
     box-shadow:0 2px 8px rgba(0,0,0,.06); width:100%;
   }
+
+  /* Mobile: make Load more match "Sell My Car" (primary button look) */
+  .cards-carousel .cc-load-more,
+  .latest-videos .grid-load-more{
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #fff !important;
+    border-radius: 7px !important;
+    padding: 10px !important;
+    font-weight: 500 !important;
+    box-shadow: none !important;
+    width: fit-content !important;
+    /* center relative to viewport (not container) */
+    position: relative !important;
+    left: 50vw !important;
+    transform: translateX(-50%) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .cards-carousel .cc-load-more:hover,
+  .latest-videos .grid-load-more:hover{
+    background: var(--primary-light) !important;
+    border-color: var(--primary-light) !important;
+    color: #fff !important;
+  }
   .cards-carousel .cc-load-more[disabled],
   .cards-carousel .cc-load-more[hidden]{ display:none !important; }
 
@@ -328,7 +368,7 @@ button.brand-arrow svg{ display:block; width:17px; height:17px; }
   .latest-videos .blog-body small.text-muted{ font-size:11px; line-height:1; }
   .latest-videos .blog-title{
     font-size:12px; line-height:1.25; margin:4px 0 2px;
-    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+    display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
   }
   .latest-videos .author-meta{ gap:.5rem; margin-top:2px; }
   .latest-videos .author-meta .avatar{ width:24px; height:24px; }
