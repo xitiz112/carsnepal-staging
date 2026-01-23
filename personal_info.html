@@ -44,11 +44,10 @@
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/personal_info.css" />
-    <link rel="stylesheet" href="css/explore_cars.css">
-      <script src="js/sticky_header.js" defer></script>
+<script src="js/sticky_header.js" defer></script>
   </head>
   
-  <body>
+  <body class="page-profile">
    
       
     
@@ -477,7 +476,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- Profile banner -->
   <div class="mk-card profile-banner mb-4">
     <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
-      <div class="d-flex align-items-center gap-5">
+      <div class="d-flex flex-column align-items-center gap-3 profile-identity">
 <div class="avatar-wrap">
   <div class="avatar-xl">
     <img src="assets/images/profile-img.png" alt="User photo">
@@ -621,7 +620,7 @@ viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         </span>
         Preferred Brands
       </div>
-      <div class="d-flex flex-wrap gap-2 mt-2">
+      <div class="d-flex flex-wrap gap-2 mt-2 pc-chips">
         <span class="pc-chip">Hyundai</span>
         <span class="pc-chip">Hyundai</span>
         <span class="pc-chip">Hyundai</span>
@@ -1011,6 +1010,7 @@ viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             </div>
 
             <div class="footer-social" aria-label="Social links">
+              <span class="footer-social__label">Follow us</span>
               <a href="#" class="footer-social__link" aria-label="Facebook">
                 <i class="fa-brands fa-facebook-f"></i>
               </a>

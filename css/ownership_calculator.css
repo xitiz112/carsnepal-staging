@@ -12,39 +12,49 @@
 
 /* ---- Section header ---- */
 .calc-head{
-  text-align:center;
-  
-  
-font-weight: 600;
-
-font-size: 27px;
-
-line-height: 100%;
-letter-spacing: 0%;
-
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 .calc-head .title{
- font-weight: 600;
+  font-weight: 600;
+  font-size: 27px;
+  line-height: 1.15;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.calc-head .title svg{
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  display: block;           /* removes baseline/extra whitespace */
+}
 
-font-size: 27px;
-  display:inline-flex;
-  gap:10px;
-  align-items:center;
+/* Mobile: ensure the title row itself is centered (inline-flex doesn't center by itself) */
+@media (max-width: 575.98px){
+  .calc-head .title{
+    justify-content: center;
+    width: 100%;
+  }
+  .calc-head .title svg{
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .calc-head .sub{
   color:var(--neutral-dark);
-  margin-top:9px;
-
-font-weight: 400;
-font-style: Regular;
-font-size: 14px;
-
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
-margin-bottom: 52px;
-
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.45;
+  max-width: 780px;
+  margin: 0 0 52px;
 }
 
 /* ---- Grid ---- */

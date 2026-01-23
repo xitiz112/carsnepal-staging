@@ -206,5 +206,17 @@
 
 /* Signup-specific spacing */
 .page-signup .auth-card{
-  margin-bottom: 50px;
+  margin-bottom: 50px !important;
+}
+
+/* Signup page has an inline style forcing main { height:100vh; padding:0; }
+   Add explicit bottom space so the card never feels flush to the viewport bottom on mobile. */
+.page-signup main.flex-grow-1{
+  /* Override the auth pages' centered grid so spacing is actually visible */
+  display: grid !important;
+  place-items: start center !important; /* top + centered horizontally */
+  padding-top: 28px !important;
+  padding-bottom: 50px !important;
+  height: auto !important;              /* override inline height:100vh */
+  min-height: 100vh !important;         /* keep the background filling the screen */
 }
