@@ -42,7 +42,6 @@
 
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/news_page.css" />
 <script src="js/sticky_header.js" defer></script>
   </head>
   
@@ -329,9 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
         languageDropdown.classList.toggle('show');
     });
     
-    // Close dropdown when clicking outside
-    collapseInstance.hide();
-  }
+    // Close dropdown when clicking outside (handled elsewhere if needed)
 });
 
 // Logout function
