@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Motokhabar - Car Research Platform</title>
 
@@ -43,8 +43,13 @@
 
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
-<!-- merged into css/style.css -->
-<script src="js/sticky_header.js" defer></script>
+    <link rel="stylesheet" href="css/explore_cars.css">
+    <!-- merged into css/style.css -->
+    <link rel="stylesheet" href="css/used_car_details.css">
+    
+      
+      <script src="js/sticky_header.js" defer></script>
+      <script src="js/mobile_search_popup.js" defer></script>
   </head>
   
   <body class="page-used-car-detail">
@@ -62,7 +67,9 @@
               class="site-logo"
             />
           </a>
-          <!-- Search + right items -->
+          
+          <button type="button" class="mh-search-toggle d-lg-none" aria-label="Search" data-mh-search-toggle><i class="bi bi-search" aria-hidden="true"></i></button>
+<!-- Search + right items -->
           <div class="collapse navbar-collapse" id="topNav">
             <!-- Search -->
             <form
@@ -257,7 +264,6 @@
         </ul>
       </div>
     </div>
-
 
     
 <script>
@@ -519,7 +525,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
 
     </nav>
-
 
          <section class="toppart">
       <nav aria-label="breadcrumb">
@@ -862,7 +867,6 @@ Basic Info
 </defs>
 </svg>
 
-
     Efficiency
      <ion-icon name="chevron-down" class="dropdown-arrow"></ion-icon>
   </h2>
@@ -1195,7 +1199,6 @@ Basic Info
 <path d="M7.41737 4.65306H12.0012L8.29302 7.34732L9.70942 11.7067L6.00097 9.0124L2.29252 11.7067L3.70892 7.34732L0.000732422 4.65306H4.58457L6.00097 0.293457C6.4731 1.74666 6.94524 3.19986 7.41737 4.65306ZM6.00097 3.5508V7.76818L7.79486 9.07155L7.10953 6.96272L8.90343 5.65963H6.68604L6.00097 3.5508Z" fill="#D4AF37"/>
 </svg>
 
-
                  
                 </div>
                 <div class="text-muted small">Based On 1000 Reviews</div>
@@ -1298,7 +1301,6 @@ Basic Info
 </clipPath>
 </defs>
 </svg>
-
 
           </div>
           <span class="text-muted">5.0 • 2 Days Ago</span>
@@ -1448,7 +1450,6 @@ Basic Info
 </defs>
 </svg>
 
-
           </div>
           <span class="text-muted">5.0 • 2 Days Ago</span>
         </div>
@@ -1521,7 +1522,6 @@ Basic Info
 </defs>
 </svg>
 
-
           </div>
           <span class="text-muted">5.0 • 2 Days Ago</span>
         </div>
@@ -1587,7 +1587,6 @@ Basic Info
 <path d="M5.16795 9.14062C3.9308 9.14062 2.84306 7.99031 2.74217 6.57668C2.69224 5.85246 2.91795 5.18273 3.37498 4.6916C3.82709 4.20539 4.46482 3.9375 5.16795 3.9375C5.87107 3.9375 6.50388 4.2068 6.95846 4.69582C7.419 5.19082 7.644 5.85914 7.59127 6.57738C7.49037 7.99066 6.40299 9.14062 5.16795 9.14062Z" fill="#782ABE"/>
 <path d="M7.47629 10.2465C6.85789 9.94414 6.05527 9.79297 5.16828 9.79297C4.13258 9.79297 3.12676 10.063 2.33574 10.553C1.43891 11.1096 0.835624 11.9199 0.591991 12.8983C0.556338 13.0391 0.552965 13.186 0.582127 13.3282C0.611288 13.4705 0.672229 13.6042 0.76039 13.7196C0.844043 13.827 0.951212 13.9137 1.07366 13.9732C1.1961 14.0327 1.33055 14.0633 1.46668 14.0627H5.36902C5.43489 14.0627 5.49866 14.0396 5.54922 13.9974C5.59978 13.9552 5.63393 13.8965 5.6457 13.8317C5.64957 13.8096 5.65449 13.7874 5.66012 13.7656C5.95824 12.5682 6.6568 11.5564 7.68898 10.8188C7.72695 10.7915 7.75748 10.7551 7.77782 10.7129C7.79816 10.6708 7.80766 10.6242 7.80546 10.5775C7.80326 10.5307 7.78943 10.4853 7.76523 10.4452C7.74102 10.4051 7.7072 10.3718 7.66683 10.3481C7.61164 10.3157 7.54836 10.2816 7.47629 10.2465Z" fill="#782ABE"/>
 </svg>
-
 
           </div>
           <div class="kpi-value">89%</div>
@@ -1926,7 +1925,6 @@ Basic Info
   handle(mq);
 })();
 </script>
-
 
 <!-- for review popup -->
 

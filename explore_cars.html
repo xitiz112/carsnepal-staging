@@ -36,11 +36,13 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="css/style.css" />
-<script src="js/explore_cars.js"></script>
+    <link rel="stylesheet" href="css/explore_cars.css" />
+    <script src="js/explore_cars.js"></script>
 
     <title>Explore Cars</title>
 
       <script src="js/sticky_header.js" defer></script>
+      <script src="js/mobile_search_popup.js" defer></script>
   </head>
   <body>
     <header class="site-header sticky-top">
@@ -55,7 +57,9 @@
               class="site-logo"
             />
           </a>
-          <!-- Search + right items -->
+          
+          <button type="button" class="mh-search-toggle d-lg-none" aria-label="Search" data-mh-search-toggle><i class="bi bi-search" aria-hidden="true"></i></button>
+<!-- Search + right items -->
           <div class="collapse navbar-collapse" id="topNav">
             <!-- Search -->
             <form
@@ -1123,7 +1127,6 @@ document.addEventListener('DOMContentLoaded', function() {
   </section>
 </main>
 
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const brandSelect = document.getElementById('brandSelect');
@@ -1291,10 +1294,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-
-
-
-
 
     <!-- FOOTER -->
     <footer class="footer-motokhabar pt-5 pb-4">

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Motokhabar - Car Research Platform</title>
 
@@ -40,11 +40,12 @@
       referrerpolicy="no-referrer"
     />
 
-
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/personal_info.css" />
-<script src="js/sticky_header.js" defer></script>
+    <link rel="stylesheet" href="css/explore_cars.css">
+      <script src="js/sticky_header.js" defer></script>
+      <script src="js/mobile_search_popup.js" defer></script>
   </head>
   
   <body class="page-profile">
@@ -63,7 +64,9 @@
               class="site-logo"
             />
           </a>
-          <!-- Search + right items -->
+          
+          <button type="button" class="mh-search-toggle d-lg-none" aria-label="Search" data-mh-search-toggle><i class="bi bi-search" aria-hidden="true"></i></button>
+<!-- Search + right items -->
           <div class="collapse navbar-collapse" id="topNav">
             <!-- Search -->
             <form
@@ -261,7 +264,6 @@
         </ul>
       </div>
     </div>
-
 
     
 <script>
@@ -599,8 +601,6 @@ viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7 6.5625C7.72487 6.5625 8.3125 5.97487 8.3125 5.25C8.3125 4.52513 7.72487 3.9375 7 3.9375C6.27513 3.9375 5.6875 4.52513 5.6875 5.25C5.6875 5.97487 6.27513 6.5625 7 6.5625Z" stroke="#757575" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
-
-
         </span>
         Location
       </div>
@@ -729,7 +729,6 @@ viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
   });
 })();
 </script>
-
 
 <!-- Change Password -->
 <div class="mk-card pw-card">
@@ -938,8 +937,6 @@ viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
   </div>
 </div>
 
-
-
     </div>
   </div>
 </section>
@@ -965,7 +962,6 @@ viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
   update();
 })();
 </script>
-
 
 </main>
 

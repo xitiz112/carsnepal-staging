@@ -1,0 +1,698 @@
+/*  Custom UI Fixes & Refinements */
+
+/* 1. Global Navigation Scaffolding (Common for New, Used, and Compare) */
+
+/* Important: The container needs a relative position for absolute buttons to center correctly */
+.specs-nav-container {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    
+    padding: 0 !important;
+  }
+  
+  /* Specific sticky behavior for Compare page */
+  .page-compare-cars .specs-nav-container {
+    position: sticky !important;
+    top: 133px !important;
+    z-index: 1020 !important;
+    background-color: #ffffff !important;
+    margin-top: 19px !important;
+    margin-bottom: 2px !important;
+  }
+  
+  .specs-nav {
+    /* CRITICAL: Neutralize existing margins that shift the container's center */
+    margin: 0 !important;
+    padding: 12px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    scroll-behavior: smooth !important;
+    width: 100% !important;
+    background-color: #f5f5f5 !important;
+    border-radius: 7px !important;
+  }
+  
+  .specs-nav::-webkit-scrollbar {
+    display: none !important;
+  }
+  
+  /* 2. Scroll Buttons (Shared design) */
+  
+  .nav-scroll-btn {
+    position: absolute !important;
+    /* PERFECT VERTICAL CENTERING */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  
+    width: 34px !important;
+    height: 34px !important;
+    background: #ffffff !important;
+    border-radius: 50% !important;
+    border: 1px solid #e8e8e8 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+    z-index: 1021 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .nav-scroll-btn:hover {
+    background: #f8f8f8 !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  .nav-scroll-btn.left {
+    left: -17px !important;
+  }
+  
+  .nav-scroll-btn.right {
+    right: -17px !important;
+  }
+  
+  .nav-scroll-btn i {
+    font-size: 14px !important;
+    color: #101828 !important;
+  }
+  
+  /* 3. Layout Fixes (Compare & Detail blocks) */
+  
+  /* The 2px gap requested by user */
+  .page-compare-cars .block {
+    margin-top: 0 !important;
+    margin-bottom: 26px !important;
+  }
+  
+  /* Used car detail layout correction (prevent wrapping) */
+  .page-used-car-detail .specs-nav {
+      display: flex !important;
+      white-space: nowrap !important;
+      overflow-x: auto !important;
+  }
+  
+  /* Ensure icons in nav are aligned */
+  .specs-nav a {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+  }
+  
+  /* 4. Mobile Bottom Sticky Refinement */
+  @media (max-width: 767px) {
+    .page-compare-cars .specs-nav-container,
+    .page-car-detail .specs-nav-container,
+    .page-used-car-detail .specs-nav-container {
+      position: fixed !important;
+      bottom: 0 !important;
+      top: auto !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      background-color: #ffffff !important;
+      padding: 8px 10px !important;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.12) !important;
+      border-top: 1px solid #e0e0e0 !important;
+      z-index: 1020 !important;
+      margin: 0 !important;
+    }
+  
+    .page-compare-cars .specs-nav,
+    .page-car-detail .specs-nav,
+    .page-used-car-detail .specs-nav {
+      border-radius: 0 !important;
+      background-color: transparent !important;
+    }
+  
+    /* Adjust scroll buttons for bottom fixed bar */
+    .nav-scroll-btn {
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+  
+    .nav-scroll-btn.left {
+      left: 5px !important;
+    }
+  
+    .nav-scroll-btn.right {
+      right: 5px !important;
+    }
+  
+  /* Padding for page content to avoid being hidden by fixed bar */
+    .page-compare-cars,
+    .page-car-detail,
+    .page-used-car-detail {
+      padding-bottom: 80px !important;
+    }
+  }
+  
+  /* 5. "Other Options" Carousel Refinements */
+  #otheroptions {
+      position: relative;
+      padding: 20px 0;
+  }
+  
+  #otheroptions .row {
+      position: relative;
+      padding: 0 40px; /* Space for arrows */
+  }
+  
+  /* Base Arrow Style */
+  .os-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: #ffffff !important;
+      border: 1px solid #e0e0e0 !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+      z-index: 10;
+      cursor: pointer;
+      transition: all 0.3s ease !important;
+  }
+  
+  .os-arrow:hover {
+      background: #5d4037 !important;
+      border-color: #5d4037 !important;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
+  }
+  
+  .os-arrow:hover i {
+      color: #ffffff !important;
+  }
+  
+  .os-arrow i {
+      font-size: 18px;
+      color: #5d4037;
+      transition: color 0.3s ease;
+  }
+  
+  .os-prev {
+      left: 0 !important;
+  }
+  
+  .os-next {
+      right: 0 !important;
+  }
+  
+  /* Hide on Mobile as used_car_details.css handles it differently or hides it */
+  @media (max-width: 575.98px) {
+      #otheroptions .row {
+          padding: 0 10px 30px !important;
+      }
+      .os-arrow {
+          width: 32px;
+          height: 32px;
+      }
+      #otheroptions .os-arrow {
+          display: none !important; /* Keep mobile swipe-only if preferred, or show small ones */
+      }
+  }
+  
+  /* Dots Styling */
+  .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+      width: 100%;
+  }
+  
+  .carousel-dots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: #d4d4d4;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+  }
+  
+  .carousel-dots button.is-active,
+  .carousel-dots button:hover {
+      background: #5d4037;
+  }
+  
+  /* Override existing bad design if it leaks */
+  #otheroptions .os-arrow {
+      display: flex !important; /* Ensure they show on desktop */
+  }
+  
+  /* 6. Used Car Detail: Valuation Price & Seller Card Enhancements */
+  .page-used-car-detail .seller-card {
+      min-height: 465px !important;
+      height: auto !important;
+  }
+  
+  .seller-card .car-meta {
+      margin-bottom: 15px !important;
+  }
+  
+  .seller-card .car-newprice {
+      margin-bottom: 15px !important;
+  }
+  
+  .seller-card .valuation-price {
+      font-size: 14px !important;
+      color: #5d4037 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      margin-bottom: 10px !important;
+  }
+  
+  .seller-card .valuation-price .label {
+      color: #757575 !important;
+  }
+  
+  .seller-card .valuation-price .value {
+      font-weight: 600 !important;
+      color: #2e7d32 !important;
+      border-bottom: 1px dotted #2e7d32 !important;
+  }
+  
+  .seller-card .listing-date {
+      font-size: 14px !important;
+      color: #5d4037 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      margin-bottom: 10px !important;
+  }
+  
+  .seller-card .listing-date .label {
+      color: #757575 !important;
+  }
+  
+  .seller-card .listing-date .value {
+      font-weight: 500 !important;
+      color: #5d4037 !important;
+  }
+  
+  /* WhatsApp and Viber Chat Buttons */
+  .btn-chat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      color: white !important;
+      transition: transform 0.2s, opacity 0.2s;
+      font-size: 14px;
+  }
+  
+  .btn-chat:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+      color: white !important;
+  }
+  
+  .btn-whatsapp {
+      background-color: #25D366;
+      border: 1px solid #25D366;
+  }
+  
+  .btn-viber {
+      background-color: #7360f2;
+      border: 1px solid #7360f2;
+  }
+  
+  .btn-chat ion-icon,
+  .btn-chat svg {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+  }
+  
+  /* 7. Explore Cars: Dynamic Price Drop Badge (Designer Update) */
+  
+  /* Hide the static designer badge if it's present in explore_cars.css */
+  .cards-grid .car-card__media::after {
+      display: none !important;
+  }
+  
+  /* New Dynamic Price Drop Badge */
+  .car-card__price-drop-badge {
+      position: absolute !important;
+      top: 10px !important;
+      right: 10px !important;
+      z-index: 10 !important;
+      padding: 6px 10px !important;
+      border-radius: 999px !important;
+      background: #5d4037 !important; /* Using var(--primary-color) equivalent */
+      color: #ffffff !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      line-height: 1 !important;
+      letter-spacing: 0.3px !important;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18) !important;
+      pointer-events: none !important;
+  }
+  
+  /* Override existing badge style to avoid conflicts */
+  .car-card__badge {
+      display: none !important;
+  }
+  
+  /* 8. Authentication Pages: Button Styling */
+  .auth-card .btn-primary {
+      background-color: #5d4037 !important;
+      border-color: #5d4037 !important;
+      color: #ffffff !important;
+      font-weight: 500 !important;
+      transition: all 0.3s ease !important;
+  }
+  
+  .auth-card .btn-primary:hover,
+  .auth-card .btn-primary:focus,
+  .auth-card .btn-primary:active {
+      background-color: #4e342e !important;
+      border-color: #4e342e !important;
+      box-shadow: 0 4px 12px rgba(93, 64, 55, 0.25) !important;
+  }
+  
+  /* Specific fix for Resend Verification button if needed */
+  .auth-card form button[type="submit"] {
+      background-color: #5d4037 !important;
+      border-color: #5d4037 !important;
+      color: #ffffff !important;
+  }
+  
+  /* Used Car Detail: Refined Seller Contact Section */
+  .seller-contact-refined .btn-chat {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #fff !important;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      border: none;
+  }
+  
+  .seller-contact-refined .btn-whatsapp {
+      background-color: #25D366 !important;
+  }
+  
+  .seller-contact-refined .btn-whatsapp:hover {
+      background-color: #20bd5a !important;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2) !important;
+  }
+  
+  .seller-contact-refined .btn-viber {
+      background-color: #7360F2 !important;
+  }
+  
+  .seller-contact-refined .btn-viber:hover {
+      background-color: #6150e0 !important;
+      box-shadow: 0 4px 12px rgba(115, 96, 242, 0.2) !important;
+  }
+  
+  .contact-info-box {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  }
+  
+  .contact-info-box i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .contact-info-box a:hover {
+      text-decoration: underline !important;
+  }
+  
+  @media (max-width: 575.98px) {
+      .seller-contact-refined .btn-chat {
+          padding: 12px 10px;
+          font-size: 14px;
+      }
+  }
+  
+  /* Ensure refined seller contact section matches screenshot perfectly */
+  .seller-contact-refined .btn-chat {
+      border-radius: 8px !important;
+      padding: 12px 10px !important;
+      font-size: clamp(14px, 2vw, 16px) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 10px !important;
+      font-weight: 600 !important;
+      box-shadow: none !important;
+  }
+  
+  .seller-contact-refined .btn-whatsapp {
+      background-color: #25D366 !important;
+      color: #ffffff !important;
+  }
+  
+  .seller-contact-refined .btn-viber {
+      background-color: #7360F2 !important;
+      color: #ffffff !important;
+  }
+  
+  .contact-info-box {
+      background-color: #faf5f2 !important;
+      border-left: 5px solid #5d4037 !important;
+      border-radius: 4px !important;
+      margin-top: 10px !important;
+  }
+  
+  .contact-info-box i {
+      color: #4e342e !important;
+      font-size: 1.1rem !important;
+  }
+  
+  .contact-info-box a {
+      color: #212121 !important;
+      font-family: inherit !important;
+  }
+  
+  .contact-info-box .bi-facebook {
+      color: #1877f2 !important;
+      font-size: 1.6rem !important;
+  }
+  
+  .contact-info-box .bi-instagram {
+      color: #e4405f !important;
+      font-size: 1.6rem !important;
+  }
+  
+  /* Final refinement for simple chat links (No buttons) */
+  .contact-link {
+      transition: opacity 0.2s ease;
+  }
+  
+  .contact-link:hover {
+      opacity: 0.8;
+  }
+  
+  .contact-link span {
+      font-size: 14px;
+      font-family: inherit;
+  }
+  
+  .contact-info-box .contact-link i {
+      font-size: 1.3rem !important;
+  }
+  
+  /* Hide vertical divider if it follows another divider or is the first/last item */
+  .Social-links-contact .divider:first-child,
+  .Social-links-contact .divider:last-child {
+      display: none !important;
+  }
+  
+  .Social-links-contact .divider + .divider {
+      display: none !important;
+  }
+  
+  /* Ensure consistent icon sizing within contact box */
+  .contact-info-box .contact-link i {
+      font-size: 1.25rem !important;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .Social-links-contact {
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding-bottom: 12px;
+  }
+  
+  /* Car Card Verified Badge Styling */
+  
+  .car-card__verified {
+      font-size: 13px !important;
+      line-height: 1 !important;
+      color: #22c55e !important;
+  }
+  
+  .car-card__verified-text {
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      line-height: 1 !important;
+      color: #4e342e !important;
+  }
+  
+  .car-card__verified-badge {
+      margin-left: 5px !important;
+  }
+  
+  /* Mobile Optimization for Social Contact Links in Used Car Detail */
+  @media (max-width: 576px) {
+      /* 1. Document Buttons: FORCE ONE ROW */
+      .page-used-car-detail .seller-location ~ div.d-flex.gap-2.mt-2 {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          gap: 8px !important;
+          margin-top: 15px !important;
+          width: 100% !important;
+          align-items: stretch !important;
+      }
+  
+      .page-used-car-detail .btn-share {
+          height: 46px !important;
+          margin: 0 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          border-radius: 10px !important;
+          box-shadow: none !important;
+          text-decoration: none !important;
+      }
+  
+      /* Target "View Document" - fill space */
+      .page-used-car-detail .seller-location ~ div.d-flex.gap-2.mt-2 a.text-center:not([download]) {
+          flex: 1 !important;
+          font-size: 14px !important;
+          padding: 0 15px !important;
+          width: auto !important;
+      }
+  
+      /* Target "Download" - compact icon only */
+      .page-used-car-detail .seller-location ~ div.d-flex.gap-2.mt-2 a[download] {
+          flex: 0 0 46px !important;
+          width: 46px !important;
+          padding: 0 !important;
+      }
+  
+      /* 2. Social Media Grid: 2 columns, compact */
+      .Social-links-contact {
+          display: grid !important;
+          grid-template-columns: 1fr 1fr !important;
+          gap: 10px !important;
+          margin: 15px 0 !important;
+          padding: 0 !important;
+          border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+          padding-bottom: 15px !important;
+      }
+  
+      .Social-links-contact .divider {
+          display: none !important;
+      }
+  
+      /* 3. Social Links: Minimalist design (No oval background) */
+      .contact-link {
+          min-height: auto !important;
+          padding: 5px !important;
+          display: flex !important;
+          flex-direction: row !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 8px !important;
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          text-decoration: none !important;
+      }
+  
+      .contact-link i {
+          font-size: 1.4rem !important;
+          display: flex !important;
+          align-items: center !important;
+          margin: 0 !important;
+      }
+  
+      .contact-link span {
+          margin: 0 !important;
+          font-size: 14px !important;
+          font-weight: 500 !important;
+          color: #212121 !important;
+          display: flex !important;
+          align-items: center !important;
+      }
+  }
+  
+  
+  
+  
+  
+  
+  /* 9. Ownership Calculator Mobile Refinements */
+  @media (max-width: 900px) {
+      .calc-grid {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 20px !important;
+      }
+  
+      .calc-grid .panel {
+          width: 100% !important;
+          max-width: 100% !important;
+          padding: 20px !important;
+          margin: 0 auto !important;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+      }
+  
+      /* Force visibility of results panel on mobile when requested */
+      .calc-grid.show-results .panel-results {
+          display: block !important;
+      }
+  
+      .calc-head .title {
+          font-size: 20px !important;
+          line-height: 1.3 !important;
+          margin-bottom: 10px !important;
+          display: block !important;
+      }
+  
+      .calc-head .sub {
+          font-size: 13px !important;
+          margin-bottom: 30px !important;
+      }
+  
+      .br-row {
+          padding: 10px 4px !important;
+      }
+  
+      .br-total {
+          padding: 12px 10px !important;
+      }
+  }
+  

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Motokhabar - Car Research Platform</title>
 
@@ -45,6 +45,7 @@
     
       
       <script src="js/sticky_header.js" defer></script>
+      <script src="js/mobile_search_popup.js" defer></script>
   </head>
   
   <body>
@@ -63,7 +64,9 @@
               class="site-logo"
             />
           </a>
-          <!-- Search + right items -->
+          
+          <button type="button" class="mh-search-toggle d-lg-none" aria-label="Search" data-mh-search-toggle><i class="bi bi-search" aria-hidden="true"></i></button>
+<!-- Search + right items -->
           <div class="collapse navbar-collapse" id="topNav">
             <!-- Search -->
             <form
@@ -533,7 +536,6 @@ document.addEventListener('DOMContentLoaded', function() {
       <input type="hidden" name="variant" id="variantInput">
   
     <div class="finder-bar">
-
 
       <!-- Brand -->
       <div class="select-wrapper">
@@ -1485,7 +1487,6 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 
 </div>
-
 
 </div>
 
@@ -2860,8 +2861,6 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </section>
 
-
-
 <!-- Script for slider controls -->
     <script>
 (() => {
@@ -3123,7 +3122,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 </script>
-
 
     </main>
 

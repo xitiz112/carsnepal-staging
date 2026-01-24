@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Signup • MotoKhabar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/login.css" />
       <script src="js/sticky_header.js" defer></script>
+      <script src="js/mobile_search_popup.js" defer></script>
   </head>
   <body class="auth-bg d-flex flex-column min-vh-100 page-signup">
   <!-- Header -->
@@ -64,7 +65,9 @@
               class="site-logo"
             />
           </a>
-          <!-- Search + right items -->
+          
+          <button type="button" class="mh-search-toggle d-lg-none" aria-label="Search" data-mh-search-toggle><i class="bi bi-search" aria-hidden="true"></i></button>
+<!-- Search + right items -->
           <div class="collapse navbar-collapse" id="topNav">
             <!-- Search -->
             <form
@@ -262,7 +265,6 @@
         </ul>
       </div>
     </div>
-
 
     
 <script>

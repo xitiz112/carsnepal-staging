@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Motokhabar - Car Research Platform</title>
 
@@ -41,11 +41,18 @@
     />
 
     <!-- Custom CSS (with Bootstrap overrides) -->
-<link rel="stylesheet" href="css/style.css" />
-<script src="js/sticky_header.js" defer></script>
+     <!-- <link rel="stylesheet" href="css/used_car_details.css"> -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/explore_cars.css">
+    <link rel="stylesheet" href="css/quiz_no_1.css">
+    <link rel="stylesheet" href="css/quiz_output.css"> -->
+    
+      
+      <script src="js/sticky_header.js" defer></script>
+      <script src="js/mobile_search_popup.js" defer></script>
   </head>
   
-  <body class="page-quiz-output">
+  <body>
    
       
     
@@ -61,7 +68,9 @@
               class="site-logo"
             />
           </a>
-          <!-- Search + right items -->
+          
+          <button type="button" class="mh-search-toggle d-lg-none" aria-label="Search" data-mh-search-toggle><i class="bi bi-search" aria-hidden="true"></i></button>
+<!-- Search + right items -->
           <div class="collapse navbar-collapse" id="topNav">
             <!-- Search -->
             <form
@@ -260,7 +269,6 @@
       </div>
     </div>
 
-
     
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -435,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     </nav>
 
-    <main class="page">
+    <main class="page quiz-wizard-page">
         <!-- Perfect Match / Result Page -->
 <section class="match-wrap container">
   <!-- Title -->
@@ -495,7 +503,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-
   <!-- Featured pick -->
   <article class="pick-card">
     <div class="pick-media">
@@ -532,7 +539,6 @@ document.addEventListener('DOMContentLoaded', function() {
   <h3 class="text-center fw-bold mb-4">Other great options for you</h3>
 
   <div class="row g-2">
-
 
 <!-- Mobile nav: dots (auto-filled by JS) -->
 <div class="carousel-dots" aria-hidden="true"></div>

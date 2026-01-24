@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Motokhabar - Car Research Platform</title>
 
@@ -40,15 +40,19 @@
       referrerpolicy="no-referrer"
     />
 
-
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/compare.css">
-<!-- merged into css/style.css -->
-<script src="js/sticky_header.js" defer></script>
+    <link rel="stylesheet" href="css/explore_cars.css">
+    <!-- merged into css/style.css -->
+    <link rel="stylesheet" href="css/ownership_calculator.css">
+    
+      
+      <script src="js/sticky_header.js" defer></script>
+      <script src="js/mobile_search_popup.js" defer></script>
   </head>
   
-  <body class="page-ownership-calculator">
+  <body>
    
       
     
@@ -64,7 +68,9 @@
               class="site-logo"
             />
           </a>
-          <!-- Search + right items -->
+          
+          <button type="button" class="mh-search-toggle d-lg-none" aria-label="Search" data-mh-search-toggle><i class="bi bi-search" aria-hidden="true"></i></button>
+<!-- Search + right items -->
           <div class="collapse navbar-collapse" id="topNav">
             <!-- Search -->
             <form
@@ -263,7 +269,6 @@
       </div>
     </div>
 
-
     
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -450,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     </nav>
 
-<main class="page ownership-calculator-page">
+<main class="page">
   <div class="container my-5">
  
   <div class="calc-head">
@@ -630,7 +635,6 @@ function resetBreakdown() {
 }
 
 </script>
-
 
  <!-- FOOTER -->
     <footer class="footer-motokhabar pt-5 pb-4">

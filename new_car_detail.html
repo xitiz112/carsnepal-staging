@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -36,10 +36,12 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="css/style.css" />
-<!-- merged into css/style.css -->
+    <link rel="stylesheet" href="css/explore_cars.css" />
+    <!-- merged into css/style.css -->
 
     <title>Car Details</title>
       <script src="js/sticky_header.js" defer></script>
+      <script src="js/mobile_search_popup.js" defer></script>
   </head>
   <body class="page-new-car-detail">
     <header class="site-header sticky-top">
@@ -54,7 +56,9 @@
               class="site-logo"
             />
           </a>
-          <!-- Search + right items -->
+          
+          <button type="button" class="mh-search-toggle d-lg-none" aria-label="Search" data-mh-search-toggle><i class="bi bi-search" aria-hidden="true"></i></button>
+<!-- Search + right items -->
           <div class="collapse navbar-collapse" id="topNav">
             <!-- Search -->
             <form
@@ -249,7 +253,6 @@
         </ul>
       </div>
     </div>
-
 
     
 <script>
@@ -519,9 +522,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- removed: colour options swatch script -->
 
-
-
-
     <!-- ============ CAR HERO ============ -->
     <section class="container mt-5 herosec">
       <div class="car-hero rounded-4 overflow-hidden shadow-sm">
@@ -565,7 +565,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <!-- removed: colour options -->
 
-
             <!-- rating -->
            <div class="d-flex align-items-center flex-nowrap gap-2 rating">
   <span class="d-inline-flex text-warning fs-5">
@@ -577,7 +576,6 @@ document.addEventListener('DOMContentLoaded', function() {
   </span>
 
   <span class="fw-semibold rate">4.9 Rating</span>
-
 
   
   
@@ -644,7 +642,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <path d="M10 17L1 9L10 1" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
-
                 </button>
                 <button
                   class="carousel-control-next hero-nav"
@@ -656,7 +653,6 @@ document.addEventListener('DOMContentLoaded', function() {
      <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 17L10 9L1 1" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-
 
                 </button>
               </div>
@@ -1329,7 +1325,6 @@ Calculate EMI
 <path d="M7.41737 4.65306H12.0012L8.29302 7.34732L9.70942 11.7067L6.00097 9.0124L2.29252 11.7067L3.70892 7.34732L0.000732422 4.65306H4.58457L6.00097 0.293457C6.4731 1.74666 6.94524 3.19986 7.41737 4.65306ZM6.00097 3.5508V7.76818L7.79486 9.07155L7.10953 6.96272L8.90343 5.65963H6.68604L6.00097 3.5508Z" fill="#D4AF37"/>
 </svg>
 
-
                  
                 </div>
                 <div class="text-muted small">Based On 1000 Reviews</div>
@@ -1432,7 +1427,6 @@ Calculate EMI
 </clipPath>
 </defs>
 </svg>
-
 
           </div>
           <span class="text-muted">5.0 • 2 Days Ago</span>
@@ -1578,7 +1572,6 @@ Calculate EMI
 </defs>
 </svg>
 
-
           </div>
           <span class="text-muted">5.0 • 2 Days Ago</span>
         </div>
@@ -1649,7 +1642,6 @@ Calculate EMI
 </clipPath>
 </defs>
 </svg>
-
 
           </div>
           <span class="text-muted">5.0 • 2 Days Ago</span>
@@ -2120,11 +2112,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 </script>
-
-
-
-
-
 
     <!-- FOOTER -->
     <footer class="footer-motokhabar pt-5 pb-4">

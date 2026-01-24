@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Motokhabar - Car Research Platform</title>
 
     <!-- Bootstrap CSS -->
@@ -41,7 +41,11 @@
 
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
-<script src="js/sticky_header.js" defer></script>
+    <link rel="stylesheet" href="css/news_and_blogs_listing.css">
+    <link rel="stylesheet" href="css/explore_cars.css">
+      
+      <script src="js/sticky_header.js" defer></script>
+      <script src="js/mobile_search_popup.js" defer></script>
   </head>
   
   <body class="page-news-listing">
@@ -59,7 +63,9 @@
               class="site-logo"
             />
           </a>
-          <!-- Search + right items -->
+          
+          <button type="button" class="mh-search-toggle d-lg-none" aria-label="Search" data-mh-search-toggle><i class="bi bi-search" aria-hidden="true"></i></button>
+<!-- Search + right items -->
           <div class="collapse navbar-collapse" id="topNav">
             <!-- Search -->
             <form
@@ -254,7 +260,6 @@
         </ul>
       </div>
     </div>
-
 
     
 <script>
@@ -592,7 +597,6 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
 
-
         <!-- add more cards as needed -->
       </div>
       </div>
@@ -638,9 +642,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', setActive);
 });
 </script>
-
-
-
 
  <!-- Latest News / Blogs (Carousel) -->
 <section class="container my-5">
@@ -1194,8 +1195,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 </script>
-
-
 
 </main>
 
