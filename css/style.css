@@ -528,11 +528,11 @@ header, .navbar, .header-container { max-width: 100%; }
    */
 @media (max-width:992px){
   /* Tight side padding; keep one row */
-  .header-top.navbar{ padding: 0 8px; flex-wrap: nowrap !important; }
+  .header-top.navbar{ padding: 15px 8px; flex-wrap: nowrap !important; }
 
   .header-top .header-container{
     display:flex !important; align-items:center !important;
-    flex-wrap: nowrap !important; width:100%;
+    flex-wrap: wrap !important; width:100%;
   }
 
   /* Brand left, everything else next to it (small fixed gap) */
@@ -544,19 +544,23 @@ header, .navbar, .header-container { max-width: 100%; }
   /* Force collapse content inline (no dropdown menu UI), and keep near logo */
   .header-top #topNav.collapse,
   .header-top #topNav.collapse:not(.show){
-    display:flex !important; flex-direction:row !important;
-    align-items:center !important; justify-content:flex-start !important;
-    flex: 0 0 auto !important; width:auto !important; height:auto !important;
-    visibility:visible !important;
+    display: contents !important;
+    visibility: visible !important;
   }
 
-  /* Hide the search on ≤991.98 to avoid wrapping */
-  .header-top #topNav > .header-search{ display:none !important; }
+  /* Show desktop search form on mobile, full width under header */
+  .header-top .header-search{
+    display:block !important;
+    order: 2;
+    width: 100%;
+    margin: 8px 0 6px;
+  }
 
   /* Right actions: tight spacing */
   .header-top .header-actions{
     display:flex !important; flex-direction:row !important; align-items:center !important;
-    flex-wrap: nowrap !important; gap: 6px !important; margin-left: 6px !important;
+    flex-wrap: nowrap !important; gap: 6px !important; margin-left: auto !important;
+    order: 1;
   }
 
   /* Mobile header-actions: compact spacing; visibility controlled per item with utility classes */
